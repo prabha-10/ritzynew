@@ -38,6 +38,8 @@ export const BrandGrid: React.FC<BrandGridProps> = ({
                             <img
                                 src={brand.logo}
                                 alt={brand.name}
+                                loading="lazy"
+                                decoding="async"
                                 className="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity"
                                 onError={(e) => {
                                     e.currentTarget.style.display = 'none';
