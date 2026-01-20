@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import {
     ShieldCheck,
-    Wind,
     Tv,
     Zap,
-    Leaf,
     Smartphone,
     Film,
     Heart,
@@ -60,35 +58,7 @@ export const DashboardWidgets = () => {
                 </div>
             </div>
 
-            {/* Widget 2: Temperature Control */}
-            <div className="min-w-[75vw] sm:min-w-[320px] md:min-w-[360px] lg:min-w-[400px] snap-center bg-gradient-to-br from-blue-500 to-indigo-600 text-white p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all duration-300 h-[300px] md:h-[380px] flex flex-col justify-between">
-                <div className="flex justify-between items-start">
-                    <h3 className="text-xl font-bold">Climate Control</h3>
-                    <Wind size={28} />
-                </div>
-
-                <div className="text-center">
-                    <div className="text-8xl font-bold tracking-tighter mb-2">{temp}°</div>
-                    <p className="text-white/80 text-sm">Living Room</p>
-                </div>
-
-                <div className="flex items-center justify-center gap-6">
-                    <button
-                        onClick={decreaseTemp}
-                        className="w-14 h-14 rounded-full bg-white/20 backdrop-blur hover:bg-white/30 transition-all active:scale-95 flex items-center justify-center font-bold text-2xl"
-                    >
-                        −
-                    </button>
-                    <button
-                        onClick={increaseTemp}
-                        className="w-14 h-14 rounded-full bg-white/20 backdrop-blur hover:bg-white/30 transition-all active:scale-95 flex items-center justify-center font-bold text-2xl"
-                    >
-                        +
-                    </button>
-                </div>
-            </div>
-
-            {/* Widget 3: Media */}
+            {/* Widget 2: Media */}
             <div className="min-w-[75vw] sm:min-w-[320px] md:min-w-[360px] lg:min-w-[400px] snap-center bg-gradient-to-br from-purple-500 to-pink-500 text-white p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all duration-300 h-[300px] md:h-[380px] flex flex-col justify-between">
                 <div className="flex justify-between items-start">
                     <h3 className="text-xl font-bold">Now Playing</h3>
@@ -111,7 +81,7 @@ export const DashboardWidgets = () => {
                 </div>
             </div>
 
-            {/* Widget 4: Energy */}
+            {/* Widget 3: Energy */}
             <div className="min-w-[75vw] sm:min-w-[320px] md:min-w-[360px] lg:min-w-[400px] snap-center bg-gradient-to-br from-green-500 to-emerald-600 text-white p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all duration-300 h-[300px] md:h-[380px] flex flex-col justify-between">
                 <div className="flex justify-between items-start">
                     <h3 className="text-xl font-bold">Energy Usage</h3>
@@ -145,7 +115,7 @@ export const DashboardWidgets = () => {
                 </div>
             </div>
 
-            {/* Widget 5: Security Status */}
+            {/* Widget 4: Security Status */}
             <div className="min-w-[75vw] sm:min-w-[320px] md:min-w-[360px] lg:min-w-[400px] snap-center bg-gradient-to-br from-gray-700 to-gray-900 text-white p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all duration-300 h-[300px] md:h-[380px] flex flex-col justify-between">
                 <div className="flex justify-between items-start">
                     <h3 className="text-xl font-bold">Security</h3>
@@ -169,35 +139,7 @@ export const DashboardWidgets = () => {
                 </button>
             </div>
 
-            {/* Widget 6: Eco Mode */}
-            <div className="min-w-[75vw] sm:min-w-[320px] md:min-w-[360px] lg:min-w-[400px] snap-center bg-gradient-to-br from-teal-500 to-cyan-600 text-white p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all duration-300 h-[300px] md:h-[380px] flex flex-col justify-between">
-                <div className="flex justify-between items-start">
-                    <h3 className="text-xl font-bold">Eco Mode</h3>
-                    <Leaf size={28} />
-                </div>
-
-                <div className="flex-1 flex items-center justify-center">
-                    <div className="text-center">
-                        <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur mx-auto mb-4 flex items-center justify-center">
-                            <Leaf size={40} />
-                        </div>
-                        <p className="font-bold text-lg mb-2">Active</p>
-                        <p className="text-white/80 text-sm">Optimizing HVAC & Lighting</p>
-                    </div>
-                </div>
-
-                <div className="bg-white/20 rounded-xl p-3">
-                    <div className="flex justify-between text-xs mb-2">
-                        <span>This Month's Savings</span>
-                        <span className="font-bold">$47</span>
-                    </div>
-                    <div className="w-full bg-white/20 h-2 rounded-full overflow-hidden">
-                        <div className="bg-white h-full w-[68%]"></div>
-                    </div>
-                </div>
-            </div>
-
-            {/* Widget 7: Voice Assistant */}
+            {/* Widget 5: Voice Assistant */}
             <div className="min-w-[75vw] sm:min-w-[320px] md:min-w-[360px] lg:min-w-[400px] snap-center bg-gradient-to-br from-orange-500 to-red-600 text-white p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all duration-300 h-[300px] md:h-[380px] flex flex-col justify-between">
                 <div className="flex justify-between items-start">
                     <h3 className="text-xl font-bold">Voice Control</h3>
@@ -221,7 +163,7 @@ export const DashboardWidgets = () => {
                 </div>
             </div>
 
-            {/* Widget 8: Entertainment */}
+            {/* Widget 6: Entertainment */}
             <div className="min-w-[75vw] sm:min-w-[320px] md:min-w-[360px] lg:min-w-[400px] snap-center bg-gradient-to-br from-violet-500 to-purple-600 text-white p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all duration-300 h-[300px] md:h-[380px] flex flex-col justify-between">
                 <div className="flex justify-between items-start">
                     <h3 className="text-xl font-bold">Movie Night</h3>
@@ -243,7 +185,7 @@ export const DashboardWidgets = () => {
                 </button>
             </div>
 
-            {/* Widget 9: Favorites */}
+            {/* Widget 7: Favorites */}
             <div className="min-w-[75vw] sm:min-w-[320px] md:min-w-[360px] lg:min-w-[400px] snap-center bg-gradient-to-br from-rose-500 to-pink-600 text-white p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all duration-300 h-[300px] md:h-[380px] flex flex-col justify-between">
                 <div className="flex justify-between items-start">
                     <h3 className="text-xl font-bold">My Scenes</h3>
@@ -266,7 +208,7 @@ export const DashboardWidgets = () => {
                 </div>
             </div>
 
-            {/* Widget 10: Support */}
+            {/* Widget 8: Support */}
             <div className="min-w-[75vw] sm:min-w-[320px] md:min-w-[360px] lg:min-w-[400px] snap-center bg-gradient-to-br from-amber-500 to-yellow-600 text-white p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all duration-300 h-[300px] md:h-[380px] flex flex-col justify-between">
                 <div className="flex justify-between items-start">
                     <h3 className="text-xl font-bold">24/7 Support</h3>
@@ -292,6 +234,9 @@ export const DashboardWidgets = () => {
                     </button>
                 </div>
             </div>
+        </>
+    );
+};
         </>
     );
 };

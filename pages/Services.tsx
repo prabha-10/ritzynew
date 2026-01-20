@@ -15,25 +15,25 @@ export const Services: React.FC = () => {
   // Fallback data in case of fetch failure
   const fallbackServices: ServiceSection[] = [
     {
-      id: 'smart-lighting',
-      title: 'Smart Lighting',
-      description: 'Transform your home with intelligent lighting.',
-      image: '/assets/images/card_lighting.png',
-      slug: 'smart-lighting',
-      heading: 'Intelligent Illumination',
+      id: 'home-automation',
+      title: 'Home Automation',
+      description: 'Smart living solutions for your home.',
+      image: '/assets/images/img_a151a9e5ca5f.jpg',
+      slug: 'home-automation',
+      heading: 'Smart Living',
       offers: [],
-      icon: 'Lamp',
+      icon: 'Home',
       supportedBrands: []
     },
     {
-      id: 'security',
-      title: 'Security',
-      description: 'Advanced protection for your peace of mind.',
-      image: '/assets/images/card_security.png',
-      slug: 'security',
-      heading: 'Secure Home',
+      id: 'commercial',
+      title: 'Commercial',
+      description: 'Automation for commercial spaces.',
+      image: '/assets/images/img_03aeedc2754c.jpg',
+      slug: 'commercial',
+      heading: 'Commercial Automation',
       offers: [],
-      icon: 'Shield',
+      icon: 'Briefcase',
       supportedBrands: []
     }
   ];
@@ -64,9 +64,10 @@ export const Services: React.FC = () => {
   // Map service IDs to generated visual assets
   const getServiceImage = (id: string, defaultImage: string) => {
     const assetMap: Record<string, string> = {
-      'smart-lighting': '/assets/images/card_lighting.png',
+      'home-automation': '/assets/images/img_a151a9e5ca5f.jpg',
+      'commercial': '/assets/images/img_03aeedc2754c.jpg',
+      'home-theater': '/assets/images/img_118bcb0b1c73.jpg',
       'security': '/assets/images/card_security.png',
-      'climate-control': '/assets/images/card_climate.png',
       'multi-room-av': '/assets/images/card_entertainment.png',
     };
     return assetMap[id] || defaultImage || '/assets/images/img_4fbf3280f66f.jpg';
@@ -155,7 +156,7 @@ export const Services: React.FC = () => {
       <Section className="py-24 md:py-32">
         <div className="flex flex-col md:flex-row justify-between items-end gap-12">
           <h2 className="text-4xl md:text-5xl font-medium text-smart-dark max-w-2xl leading-tight font-heading">
-            Smart lights and <br /> home security.
+            Intelligent automation and <br /> premium security.
           </h2>
           <Link to="/contact" className="hidden md:flex items-center gap-2 text-smart-dark font-medium border-b border-black pb-1 hover:opacity-70 transition-opacity">
             See All Capabilities <ArrowRight size={18} />
@@ -184,24 +185,24 @@ export const Services: React.FC = () => {
         <div className="max-w-[1440px] mx-auto px-6 md:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="order-2 lg:order-1">
-              <span className="text-smart-accent font-medium uppercase tracking-wider text-sm mb-4 block">Immersive Control</span>
+              <span className="text-smart-accent font-medium uppercase tracking-wider text-sm mb-4 block">Seamless Integration</span>
               <h3 className="text-4xl md:text-5xl font-medium text-smart-dark mb-6 font-heading">
-                What Philips Hue can do
+                Experience True<br />Home Automation
               </h3>
               <p className="text-smart-muted text-lg leading-relaxed mb-8 max-w-md">
-                Set the mood to creating immersive experiences when watching TV, playing a game, or listing to music.
-                Philips Hue brings you more benefits than you thought possible.
+                Unify all your home's systems into one intuitive interface.
+                From lighting and climate to security and entertainment, control your entire estate with a single touch.
               </p>
               <button className="bg-black text-white px-8 py-4 rounded-full font-medium hover:bg-smart-accent transition-colors">
-                Explore Mood Lighting
+                Discover Possibilities
               </button>
             </div>
 
             <div className="order-1 lg:order-2 relative group cursor-pointer">
               <div className="aspect-[4/3] rounded-3xl overflow-hidden bg-gray-200 relative">
                 <img
-                  src="/assets/images/card_entertainment.png"
-                  alt="Feature"
+                  src="/assets/images/img_a151a9e5ca5f.jpg"
+                  alt="Home Automation Feature"
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 flex items-center justify-center">

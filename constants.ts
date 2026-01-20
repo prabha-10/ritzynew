@@ -13,7 +13,8 @@ import {
   Battery,
   Mic,
   Smartphone,
-  Sun
+  Sun,
+  Gamepad
 } from 'lucide-react';
 import { Service, Product, ServiceCategory, NavItem, PortfolioProject, ServiceDetailData, ProductDetailData, PortfolioDetailData } from './types';
 
@@ -33,9 +34,9 @@ export const HERO_SLIDES = [
     subtitle: 'Seamlessly integrate every aspect of your home.',
     image: '/assets/images/hero_luxury.png',
     features: [
-      { title: 'Smart Lighting', description: 'Adaptive lighting that follows your rhythm.', image: '/assets/images/img_c5686d098957.jpg' },
+      { title: 'Lighting & Curtains', description: 'Adaptive lighting that follows your rhythm.', image: '/assets/images/img_c5686d098957.jpg' },
       { title: 'Climate Control', description: 'Perfect temperature in every room, always.', image: '/assets/images/img_4fac6e45ff2c.jpg' },
-      { title: 'Smart Security', description: '24/7 monitoring and intelligent alerts.', image: '/assets/images/img_6ea09ac655b8.jpg' },
+      { title: 'Security', description: '24/7 monitoring and intelligent alerts.', image: '/assets/images/img_6ea09ac655b8.jpg' },
       { title: 'Automated Shades', description: 'Natural light management at a touch.', image: '/assets/images/img_189f03a432d8.jpg' },
       { title: 'Access Control', description: 'Secure keyless entry for your family.', image: '/assets/images/img_f09fdf964e08.jpg' },
       { title: 'Energy Monitoring', description: 'Optimize your consumption in real-time.', image: '/assets/images/img_9e2738cde5d6.jpg' }
@@ -56,8 +57,8 @@ export const HERO_SLIDES = [
     ]
   },
   {
-    id: 'living-av',
-    title: 'Living Room AV',
+    id: 'living-room',
+    title: 'Living Room',
     subtitle: 'Premium audio and visual solutions for your living space.',
     image: '/assets/images/img_fa71d290854e.jpg',
     features: [
@@ -71,7 +72,7 @@ export const HERO_SLIDES = [
   },
   {
     id: 'commercial',
-    title: 'Commercial Automation',
+    title: 'Commercial',
     subtitle: 'Intelligent solutions for modern businesses and offices.',
     image: '/assets/images/img_d8c80cf3670c.jpg',
     features: [
@@ -87,210 +88,169 @@ export const HERO_SLIDES = [
 
 export const SERVICES: Service[] = [
   {
-    id: 'smart-living',
-    title: 'Smart Living',
-    description: 'Seamlessly integrate control over lighting, climate, and entertainment.',
+    id: 'home-automation',
+    title: 'Home Automation',
+    description: 'Smart living solutions for your home.',
     category: ServiceCategory.HOME_AUTOMATION,
     icon: Home,
-    features: ['Voice Control', 'Automated Scenes', 'Energy Monitoring'],
-    image: '/assets/images/img_4fbf3280f66f.jpg', // Modern Smart Home Living Room
+    features: ['Lighting & Curtains', 'Keypads Automation', 'Climate Control'],
+    image: '/assets/images/img_a151a9e5ca5f.jpg',
   },
   {
-    id: 'climate-control',
-    title: 'Climate & Air',
-    description: 'Maintain perfect air quality and temperature automatically.',
-    category: ServiceCategory.HOME_AUTOMATION,
-    icon: Wind,
-    features: ['Air Purification', 'Humidity Control', 'Smart Scheduling'],
-    image: '/assets/images/img_4c6f3a399a90.jpg', // Modern thermostat/climate control
+    id: 'commercial',
+    title: 'Commercial',
+    description: 'Automation for commercial spaces.',
+    category: ServiceCategory.COMMERCIAL,
+    icon: Building,
+    features: ['Office Automation', 'Hotels/Restaurants', 'Hospitality'],
+    image: '/assets/images/img_03aeedc2754c.jpg',
   },
   {
-    id: 'entertainment',
-    title: 'Entertainment',
-    description: 'Immersive audio and visual experiences in every room.',
+    id: 'home-theater',
+    title: 'Home Theater',
+    description: 'Immersive audio and visual experiences.',
     category: ServiceCategory.HOME_THEATER,
     icon: Speaker,
-    features: ['Multi-room Audio', '4K Projection', 'Hidden Speakers'],
-    image: '/assets/images/img_ba74e2faf90a.jpg', // Home Theater Entertainment
+    features: ['4K Projection', 'Dolby Atmos', 'Acoustic Treatment'],
+    image: '/assets/images/img_118bcb0b1c73.jpg',
+  },
+  {
+    id: 'living-room',
+    title: 'Living Room',
+    description: 'Home theater / Lifestyle Speakers.',
+    category: ServiceCategory.HOME_THEATER,
+    icon: Tv,
+    features: ['Hidden Displays', 'High Fidelity', 'Media Integration'],
+    image: '/assets/images/img_5bdefbaf2ff4.jpg',
+  },
+  {
+    id: 'multi-room-av',
+    title: 'Multi Room AV',
+    description: 'Audio visual distribution.',
+    category: ServiceCategory.HOME_THEATER,
+    icon: Speaker,
+    features: ['Zone Wise Speakers', 'Centralized Sources', 'App Control'],
+    image: '/assets/images/card_entertainment.png',
   },
   {
     id: 'security',
-    title: 'Smart Security',
-    description: 'Advanced surveillance and access control for peace of mind.',
+    title: 'Security',
+    description: 'Advanced protection for your peace of mind.',
     category: ServiceCategory.EXTERIOR,
     icon: ShieldCheck,
-    features: ['Face Recognition', 'Smart Locks', 'Remote Monitoring'],
-    image: '/assets/images/img_28aefd490497.jpg', // Security System/Camera
+    features: ['CCTV', 'Intrusion Detection', 'Smart Locks'],
+    image: '/assets/images/card_security.png',
   },
   {
-    id: 'garden',
-    title: 'Garden & Pool',
-    description: 'Automated irrigation and pool management systems.',
-    category: ServiceCategory.EXTERIOR,
-    icon: Droplets,
-    features: ['Soil Sensors', 'Pool Heating', 'Outdoor Lighting'],
-    image: '/assets/images/img_8dc67dd6b1b8.jpg', // Luxury Pool and Garden
-  },
-  {
-    id: 'commercial-auto',
-    title: 'Commercial',
-    description: 'Complete automation for boardrooms and office buildings.',
-    category: ServiceCategory.COMMERCIAL,
-    icon: Building,
-    features: ['Video Conferencing', 'Lighting Schedules', 'Access Control'],
-    image: '/assets/images/img_7bff115f22ef.jpg', // Modern Office/Boardroom
+    id: 'controllers',
+    title: 'Controllers',
+    description: 'Centralized control.',
+    category: ServiceCategory.HOME_AUTOMATION,
+    icon: Gamepad,
+    features: ['Universal Remote', 'Touch Panels', 'Voice Control'],
+    image: '/assets/images/img_91b150fa96d3.jpg',
   }
 ];
 
 // Detailed data for Service Detail Pages
 export const SERVICE_DETAILS: Record<string, ServiceDetailData> = {
-  'smart-living': {
-    id: 'smart-living',
-    title: 'Smart Living',
+  'home-automation': {
+    id: 'home-automation',
+    title: 'Home Automation',
     subtitle: 'A Home That Thinks for You',
-    heroImage: '/assets/images/img_d8c80cf3670c.jpg',
-    introTitle: 'Orchestrate your entire home environment with a single touch.',
-    introText: 'Smart Living elevates your daily routine by unifying lighting, shades, climate, and entertainment into a single, intuitive system. Whether you are waking up to a gentle sunrise scene or securing your home for the night, Ritzy ensures that your environment adapts to your needs effortlessly.',
+    heroImage: '/assets/images/img_a151a9e5ca5f.jpg',
+    introTitle: 'Orchestrate your entire home environment.',
+    introText: 'Smart Living elevates your daily routine by unifying lighting, shades, climate, and entertainment into a single, intuitive system.',
     features: [
       {
-        title: 'Lighting Control',
-        description: 'Create the perfect ambiance for any occasion with dimmable, color-tunable lighting scenes that can be recalled instantly.',
-        image: '/assets/images/img_32e31e6414cb.jpg'
+        title: 'Keypad Automation',
+        description: 'Elegant controls for your entire home.',
+        image: '/assets/images/img_af29e76905cd.jpg'
       },
       {
-        title: 'Automated Shading',
-        description: 'Protect your interiors and manage natural light with motorized shades that adjust automatically to the sun\'s position.',
-        image: '/assets/images/img_2557a3195bef.jpg'
+        title: 'Climate Control',
+        description: 'Smart temperature management for comfort and efficiency.',
+        image: '/assets/images/img_adde05ea073a.jpg'
       },
       {
         title: 'Voice Integration',
-        description: 'Hands-free control for when your hands are full. Simply ask your home to turn on the lights, play music, or set the temperature.',
+        description: 'Hands-free control for effortless living.',
         image: '/assets/images/img_3f750d916f33.jpg'
       }
     ]
   },
-  'climate-control': {
-    id: 'climate-control',
-    title: 'Climate & Air',
-    subtitle: 'Perfect Comfort, Every Season',
-    heroImage: '/assets/images/img_a14ac4473455.jpg',
-    introTitle: 'Breathe easier with intelligent environmental control.',
-    introText: 'Maintain the ideal temperature and humidity levels in every room of your house. Our smart climate systems learn your preferences and adjust automatically to ensure comfort while maximizing energy efficiency.',
+  'commercial': {
+    id: 'commercial',
+    title: 'Commercial Automation',
+    subtitle: 'Intelligent Business Solutions',
+    heroImage: '/assets/images/img_03aeedc2754c.jpg',
+    introTitle: 'Efficiency and control for the modern workplace.',
+    introText: 'Streamline operations with our commercial automation systems. From boardrooms to building management.',
     features: [
       {
-        title: 'Smart Thermostats',
-        description: 'Precision temperature control that learns your schedule and adjusts to occupancy.',
-        image: '/assets/images/img_d965decc0ea3.jpg'
-      },
-      {
-        title: 'Air Quality Monitoring',
-        description: 'Sensors detect pollutants and allergens, automatically activating filtration systems to keep your air fresh.',
-        image: '/assets/images/img_a5de3b6534df.jpg'
-      },
-      {
-        title: 'Humidity Control',
-        description: 'Protect your artwork, wood floors, and personal health by maintaining optimal humidity levels year-round.',
-        image: '/assets/images/img_a5de3b6534df.jpg'
-      }
-    ]
-  },
-  'entertainment': {
-    id: 'entertainment',
-    title: 'Entertainment',
-    subtitle: 'Immersive Audio & Video',
-    heroImage: '/assets/images/img_adde05ea073a.jpg',
-    introTitle: 'Cinema-quality experiences in the comfort of your home.',
-    introText: 'From dedicated home theaters to whole-home audio distribution, we deliver crystal-clear sound and stunning visuals. Enjoy your favorite movies, music, and sports with technology that rivals the best commercial venues.',
-    features: [
-      {
-        title: 'Whole-Home Audio',
-        description: 'Stream music to every room in the house, with discreet architectural speakers that blend into your decor.',
+        title: 'Video Conferencing',
+        description: 'Seamless communication solutions.',
         image: '/assets/images/img_e5b1739b3b0d.jpg'
       },
       {
-        title: 'Dedicated Home Cinema',
-        description: 'Experience movies as the director intended with 4K laser projection, Dolby Atmos sound, and custom acoustical treatment.',
-        image: '/assets/images/img_6ea09ac655b8.jpg'
+        title: 'Office Automation',
+        description: 'Integrated control for productivity.',
+        image: '/assets/images/img_10bc5fc12434.jpg'
       },
       {
-        title: 'Media Distribution',
-        description: 'Centralize your video sources and watch anything on any TV in the house, instantly.',
-        image: '/assets/images/img_94f838ae12ef.jpg'
+        title: 'Hospitality',
+        description: 'Enhance guest experiences.',
+        image: '/assets/images/img_7bff115f22ef.jpg'
+      }
+    ]
+  },
+  'home-theater': {
+    id: 'home-theater',
+    title: 'Home Theater',
+    subtitle: 'Cinematic Excellence',
+    heroImage: '/assets/images/img_e3ab2c634130.jpg',
+    introTitle: 'The ultimate entertainment experience.',
+    introText: 'Bring the cinema home with expert design, 4K projection, and Dolby Atmos audio.',
+    features: [
+      {
+        title: '4K Laser Projection',
+        description: 'Crystal clear visuals.',
+        image: '/assets/images/img_44e6dd24e97f.jpg'
+      },
+      {
+        title: 'Immersive Audio',
+        description: 'Sound that surrounds you.',
+        image: '/assets/images/img_b87e882cda5c.jpg'
+      },
+      {
+        title: 'Acoustic Treatment',
+        description: 'Perfect sound isolation.',
+        image: '/assets/images/img_fe31fbb9b30b.jpg'
       }
     ]
   },
   'security': {
     id: 'security',
-    title: 'Smart Security',
-    subtitle: 'Peace of Mind, redefined',
-    heroImage: '/assets/images/img_5bdefbaf2ff4.jpg',
-    introTitle: 'Advanced protection for your family and property.',
-    introText: 'Our integrated security solutions go beyond simple alarms. We combine high-definition surveillance, smart access control, and automated deterrents to create a robust safety shield around your home.',
+    title: 'Security',
+    subtitle: 'Protected & Secure',
+    heroImage: '/assets/images/card_security.png',
+    introTitle: 'Advanced surveillance and access control.',
+    introText: 'Keep your property safe with high-definition CCTV, smart locks, and 24/7 monitoring integration.',
     features: [
       {
-        title: 'Intelligent Surveillance',
-        description: 'AI-powered cameras distinguish between people, pets, and vehicles, sending you only the alerts that matter.',
-        image: '/assets/images/img_36f27919b1a6.jpg'
+        title: 'CCTV Surveillance',
+        description: 'High definition monitoring.',
+        image: '/assets/images/img_e35337d12fd1.jpg'
       },
       {
-        title: 'Smart Locks & Access',
-        description: 'Manage entry for family, guests, and service providers remotely. Receive notifications whenever a door is unlocked.',
-        image: '/assets/images/img_e5b1739b3b0d.jpg'
+        title: 'Smart Locks',
+        description: 'Secure keyless entry.',
+        image: '/assets/images/img_d965decc0ea3.jpg'
       },
       {
-        title: 'Perimeter Defense',
-        description: 'Automated lighting and motion sensors create a deterrent barrier before an intruder even reaches your home.',
-        image: '/assets/images/img_0a460184bffc.jpg'
-      }
-    ]
-  },
-  'garden': {
-    id: 'garden',
-    title: 'Garden & Pool',
-    subtitle: 'Your Outdoor Oasis, Automated',
-    heroImage: '/assets/images/img_6ea09ac655b8.jpg',
-    introTitle: 'Extend your smart living experience to the outdoors.',
-    introText: 'Create the perfect outdoor retreat with automated pool controls, landscape lighting, and weather-based irrigation. Whether you are hosting a summer party or relaxing by the fire pit, control it all from your phone.',
-    features: [
-      {
-        title: 'Pool & Spa Control',
-        description: 'Set water temperature, activate jets, and control lighting for your pool and spa, ensuring it is ready when you are.',
-        image: '/assets/images/img_bdfa633757c2.jpg'
-      },
-      {
-        title: 'Landscape Lighting',
-        description: 'Enhance curb appeal and safety with automated path lights and spotlights that turn on at sunset.',
-        image: '/assets/images/img_9e2738cde5d6.jpg'
-      },
-      {
-        title: 'Smart Irrigation',
-        description: 'Save water and keep your lawn lush with sprinkler systems that adjust based on local weather forecasts.',
-        image: '/assets/images/img_384dc7ab8faf.jpg'
-      }
-    ]
-  },
-  'commercial-auto': {
-    id: 'commercial-auto',
-    title: 'Commercial',
-    subtitle: 'Intelligent Business Solutions',
-    heroImage: '/assets/images/img_6fd9cbaeece2.jpg',
-    introTitle: 'Efficiency, collaboration, and control for the modern workplace.',
-    introText: 'Streamline operations and enhance productivity with our commercial automation systems. From impressive boardrooms to energy-efficient building management, we provide the tools you need to run a smarter business.',
-    features: [
-      {
-        title: 'Video Conferencing',
-        description: 'Start meetings instantly with one-touch systems that integrate video, audio, and room control.',
-        image: '/assets/images/img_4c6f3a399a90.jpg'
-      },
-      {
-        title: 'Building Management',
-        description: 'Centralized control of HVAC, lighting, and shading to optimize energy usage and reduce operational costs.',
-        image: '/assets/images/img_10bc5fc12434.jpg'
-      },
-      {
-        title: 'Access Control',
-        description: 'Secure your premises with scalable access solutions for employees and visitors, fully integrated with your security system.',
-        image: '/assets/images/img_94f838ae12ef.jpg'
+        title: 'Intrusion Detection',
+        description: 'Instant alerts for unauthorized access.',
+        image: '/assets/images/img_067c62cf8d68.jpg'
       }
     ]
   }
@@ -299,60 +259,32 @@ export const SERVICE_DETAILS: Record<string, ServiceDetailData> = {
 export const PRODUCTS: Product[] = [
   // --- Home Automation ---
   {
-    id: 'lightings-curtains',
-    name: 'Lightings & Curtains',
-    category: 'Home Automation',
-    description: 'Integrated control for automated lighting scenes and motorized window treatments.',
-    image: '/assets/images/img_81fd2ba95647.jpg' // Curtains
-  },
-  {
     id: 'tyba',
     name: 'Tyba',
     category: 'Home Automation',
-    description: 'Refined architectural keypads and touch interfaces for modern interiors.',
-    image: '/assets/images/img_af29e76905cd.jpg' // Minimal switch
+    description: 'Refined architectural keypads and touch interfaces.',
+    image: '/assets/images/img_af29e76905cd.jpg'
   },
   {
     id: 'one-touch',
     name: 'One Touch',
     category: 'Home Automation',
-    description: 'Simplifying smart home control with intuitive single-touch panels.',
-    image: '/assets/images/img_e942ea4e9e81.jpg' // Tablet control
+    description: 'Simplifying smart home control with intuitive panels.',
+    image: '/assets/images/img_e942ea4e9e81.jpg'
   },
   {
     id: 'blacknova',
     name: 'Blacknova',
     category: 'Home Automation',
-    description: 'Luxury design keypads merging Italian aesthetics with advanced technology.',
-    image: '/assets/images/img_2557a3195bef.jpg' // Stylish wall
+    description: 'Luxury design keypads merging Italian aesthetics with technology.',
+    image: '/assets/images/img_2557a3195bef.jpg'
   },
   {
-    id: 'burglar-alarm',
-    name: 'Burglar Alarm',
+    id: 'security-cctv',
+    name: 'CCTV & Security',
     category: 'Home Automation',
-    description: 'Robust intrusion detection systems to secure your property 24/7.',
-    image: '/assets/images/img_067c62cf8d68.jpg' // Alarm panel
-  },
-  {
-    id: 'cctv',
-    name: 'CCTV',
-    category: 'Home Automation',
-    description: 'High-definition surveillance cameras with remote viewing capabilities.',
-    image: '/assets/images/img_e35337d12fd1.jpg' // Camera
-  },
-  {
-    id: 'door-intercom',
-    name: 'Door Intercom',
-    category: 'Home Automation',
-    description: 'Smart video intercoms for secure and convenient visitor access.',
-    image: '/assets/images/img_2ee3ccb01fa2.jpg' // Door entry
-  },
-  {
-    id: 'digital-lock',
-    name: 'Digital Lock',
-    category: 'Home Automation',
-    description: 'Keyless entry solutions offering biometric and code access.',
-    image: '/assets/images/img_d965decc0ea3.jpg' // Smart lock
+    description: 'High-definition surveillance and smart locking systems.',
+    image: '/assets/images/img_e35337d12fd1.jpg'
   },
 
   // --- Home Theater ---
@@ -360,100 +292,70 @@ export const PRODUCTS: Product[] = [
     id: 'ascendo',
     name: 'Ascendo',
     category: 'Home Theater',
-    description: 'World-class immersive audio systems for the ultimate cinema experience.',
-    image: '/assets/images/img_b87e882cda5c.jpg' // Speaker
+    description: 'World-class immersive audio systems.',
+    image: '/assets/images/img_b87e882cda5c.jpg'
   },
   {
     id: 'speakercraft-ht',
     name: 'Speakercraft',
     category: 'Home Theater',
-    description: 'Premium architectural speakers designed for performance and aesthetics.',
-    image: '/assets/images/img_13246fc0455c.jpg' // Speaker detail
+    description: 'Premium architectural speakers.',
+    image: '/assets/images/img_13246fc0455c.jpg'
   },
   {
     id: 'projectors',
     name: 'Projectors',
     category: 'Home Theater',
-    description: '4K and 8K laser projection for true-to-life big screen visuals.',
-    image: '/assets/images/img_44e6dd24e97f.jpg' // Projector room
+    description: '4K and 8K laser projection.',
+    image: '/assets/images/img_44e6dd24e97f.jpg'
   },
   {
     id: 'acoustic-screen',
     name: 'Acoustic Screen',
     category: 'Home Theater',
-    description: 'Acoustically transparent screens that let sound pass through flawlessly.',
-    image: '/assets/images/img_fe31fbb9b30b.jpg' // Cinema screen
+    description: 'Acoustically transparent screens.',
+    image: '/assets/images/img_fe31fbb9b30b.jpg'
   },
 
-  // --- Living Room Home Theater ---
+  // --- Living Room ---
   {
-    id: 'xcase',
-    name: 'Xcase',
-    category: 'Living Room AV',
-    description: 'High-fidelity speakers optimized for living room acoustics.',
-    image: '/assets/images/img_5bdefbaf2ff4.jpg' // Living room speaker
+    id: 'hifi-audio',
+    name: 'Hi-Fi Audio',
+    category: 'Living Room',
+    description: 'High-fidelity speakers optimized for living spaces.',
+    image: '/assets/images/img_b85538f0571d.jpg'
   },
   {
-    id: 'speakercraft-lr',
-    name: 'Speakercraft',
-    category: 'Living Room AV',
-    description: 'Discreet audio solutions that blend into your living space.',
-    image: '/assets/images/img_b85538f0571d.jpg' // Speaker
-  },
-  {
-    id: 'lr-projector',
-    name: 'Projectors',
-    category: 'Living Room AV',
-    description: 'Ultra-short throw projectors for massive images in smaller spaces.',
-    image: '/assets/images/img_a0e0726f56eb.jpg' // UST Projector
-  },
-  {
-    id: 'screen-flat-tv',
-    name: 'Screen / Flat TV',
-    category: 'Living Room AV',
-    description: 'State-of-the-art flat panels and motorized screens.',
-    image: '/assets/images/img_6b20535b7422.jpg' // TV
+    id: 'hidden-tech',
+    name: 'Hidden Technology',
+    category: 'Living Room',
+    description: 'Discreet audio and visual solutions.',
+    image: '/assets/images/img_5bdefbaf2ff4.jpg'
   },
 
-  // --- Multi Room AV Distribution (Mapped to Commercial/Automation per hierarchy items) ---
-  {
-    id: 'parking',
-    name: 'Parking',
-    category: 'Automation',
-    description: 'Automated parking management and garage control systems.',
-    image: '/assets/images/img_097596f052a5.jpg' // Garage
-  },
-  {
-    id: 'hvac',
-    name: 'HVAC',
-    category: 'Automation',
-    description: 'Smart climate control for energy efficiency and comfort.',
-    image: '/assets/images/img_adde05ea073a.jpg' // Thermostat
-  },
+  // --- Commercial ---
   {
     id: 'av-conference',
-    name: 'AV Conference (office)',
+    name: 'AV Conference',
     category: 'Commercial',
-    description: 'Professional audio-video conferencing solutions for modern offices.',
-    image: '/assets/images/img_e5b1739b3b0d.jpg' // Conference
+    description: 'Professional conferencing solutions.',
+    image: '/assets/images/img_e5b1739b3b0d.jpg'
+  },
+  {
+    id: 'smart-office',
+    name: 'Smart Office',
+    category: 'Commercial',
+    description: 'Integrated lighting and climate control for offices.',
+    image: '/assets/images/img_03aeedc2754c.jpg'
   },
 
-  // --- Fenestrations ---
+  // --- Multi Room AV ---
   {
-    id: 'windows-fen',
-    name: 'Windows',
-    category: 'Fenestrations',
-    description: 'Automated glazing and smart window systems.',
-    image: '/assets/images/img_9c98b9341570.jpg' // Glass window
-  },
-
-  // --- Security ---
-  {
-    id: 'windows-sec',
-    name: 'Windows',
-    category: 'Security',
-    description: 'Reinforced security windows with integrated sensors.',
-    image: '/assets/images/img_1d0bb6fa0e4e.jpg' // Secure glass
+    id: 'multi-room-audio',
+    name: 'Multi-Room Audio',
+    category: 'Multi Room AV',
+    description: 'Seamless audio distribution throughout the property.',
+    image: '/assets/images/card_entertainment.png'
   }
 ];
 

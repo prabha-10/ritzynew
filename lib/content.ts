@@ -11,21 +11,22 @@ export async function getNewServices(): Promise<ServiceSection[]> {
     }
 
     // Strict Order Mapping
+    // Strict Order Mapping
     const order = [
         'home-automation',
         'commercial',
-        'smart-lighting', // New
         'home-theater',
         'living-room',
         'multi-room-av',
         'security',
-        'climate-control', // New
         'controllers'
     ];
 
-    return services.sort((a, b) => {
-        return order.indexOf(a.id) - order.indexOf(b.id);
-    });
+    return services
+        .filter(service => order.includes(service.id))
+        .sort((a, b) => {
+            return order.indexOf(a.id) - order.indexOf(b.id);
+        });
 }
 
 export async function getBrands(): Promise<Brand[]> {

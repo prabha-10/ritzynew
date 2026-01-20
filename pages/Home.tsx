@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ChevronDown, ChevronUp, Tv, ShieldCheck, Speaker, Building, Droplets, Plus, Minus, Wind, Zap, Film, MessageSquare, ClipboardList, Wrench, Cpu, GraduationCap, Target, Play } from 'lucide-react';
+import { ArrowRight, ChevronDown, ChevronUp, Tv, ShieldCheck, Speaker, Building, Droplets, Plus, Minus, Wind, Zap, Film, MessageSquare, ClipboardList, Wrench, Cpu, GraduationCap, Target, Play, TriangleAlert } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Section } from '../components/ui/Section';
 import { Button } from '../components/ui/Button';
@@ -18,9 +18,9 @@ const HAVEN_BLACK = 'rgba(0, 0, 0, 0.9)';
 const HeroSection: React.FC = () => {
   const servicePills = [
     { name: 'Home Automation', link: '/services/home-automation' },
-    { name: 'Lighting', link: '/services/smart-lighting' },
-    { name: 'Security', link: '/services/security' },
-    { name: 'Entertainment', link: '/services/entertainment' }
+    { name: 'Commercial', link: '/services/commercial' },
+    { name: 'Home Theater', link: '/services/home-theater' },
+    { name: 'Multi Room AV', link: '/services/multi-room-av' }
   ];
 
   return (
@@ -141,8 +141,8 @@ const SolutionsGrid: React.FC = () => {
           </p>
         </div>
 
-        {/* 2-Column Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* 3-Column Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.slice(0, 6).map((service, index) => (
             <motion.div
               key={service.id}
@@ -671,7 +671,7 @@ const SmartWidgetsSection: React.FC = () => {
               alt="Security"
               className="absolute inset-0 w-full h-full object-cover"
             />
-            <div className={`absolute inset-0 transition-all duration-500 ${isArmed ? 'bg-green-900/70' : 'bg-yellow-900/70'}`} />
+            <div className={`absolute inset-0 transition-all duration-500 ${isArmed ? 'bg-green-900/70' : 'bg-red-900/80'}`} />
 
             <div className="relative z-10 p-6 flex flex-col h-full justify-between">
               <div className="flex justify-between items-start">
@@ -680,7 +680,7 @@ const SmartWidgetsSection: React.FC = () => {
                   animate={isArmed ? { scale: [1, 1.1, 1] } : {}}
                   transition={{ duration: 2, repeat: Infinity }}
                 >
-                  <ShieldCheck size={24} />
+                  {isArmed ? <ShieldCheck size={24} /> : <TriangleAlert size={24} className="text-red-400" />}
                 </motion.div>
               </div>
 
@@ -689,13 +689,13 @@ const SmartWidgetsSection: React.FC = () => {
                   <motion.div
                     animate={isArmed ? { boxShadow: ['0 0 0 0 rgba(34,197,94,0.4)', '0 0 0 20px rgba(34,197,94,0)', '0 0 0 0 rgba(34,197,94,0.4)'] } : {}}
                     transition={{ duration: 2, repeat: Infinity }}
-                    className={`w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center border-4 ${isArmed ? 'bg-green-500/30 border-green-400' : 'bg-yellow-500/30 border-yellow-400'}`}
+                    className={`w-24 h-24 rounded-full mx-auto mb-4 flex items-center justify-center border-4 ${isArmed ? 'bg-green-500/30 border-green-400' : 'bg-red-500/30 border-red-400'}`}
                   >
                     <motion.div
-                      animate={{ rotate: isArmed ? 0 : 15 }}
-                      className={`w-16 h-16 rounded-full flex items-center justify-center ${isArmed ? 'bg-green-500' : 'bg-yellow-500'}`}
+                      animate={{ rotate: isArmed ? 0 : 0 }}
+                      className={`w-16 h-16 rounded-full flex items-center justify-center ${isArmed ? 'bg-green-500' : 'bg-red-500'}`}
                     >
-                      <ShieldCheck size={32} />
+                      {isArmed ? <ShieldCheck size={32} /> : <TriangleAlert size={32} />}
                     </motion.div>
                   </motion.div>
                   <motion.p
@@ -706,8 +706,8 @@ const SmartWidgetsSection: React.FC = () => {
                   >
                     {isArmed ? 'System Armed' : 'System Disarmed'}
                   </motion.p>
-                  <p className={`text-sm ${isArmed ? 'text-green-300' : 'text-yellow-300'}`}>
-                    {isArmed ? '✓ All zones secure' : '⚠ Ready to arm'}
+                  <p className={`text-sm ${isArmed ? 'text-green-300' : 'text-red-200'}`}>
+                    {isArmed ? '✓ All zones secure' : '⚠ Action Required'}
                   </p>
                 </div>
               </div>
@@ -716,9 +716,17 @@ const SmartWidgetsSection: React.FC = () => {
                 whileTap={{ scale: 0.95 }}
                 whileHover={{ scale: 1.02 }}
                 onClick={() => setIsArmed(!isArmed)}
-                className={`backdrop-blur py-3 rounded-xl font-semibold transition-all ${isArmed ? 'bg-red-500/80 hover:bg-red-600/80' : 'bg-green-500/80 hover:bg-green-600/80'}`}
+                className={`backdrop-blur py-3 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 ${isArmed ? 'bg-white/20 hover:bg-white/30' : 'bg-red-600 hover:bg-red-700 text-white'}`}
               >
-                {isArmed ? '🔓 Disarm System' : '🔐 Arm System'}
+                {isArmed ? (
+                  <>
+                    Disarm System
+                  </>
+                ) : (
+                  <>
+                    <TriangleAlert size={18} /> Arm System
+                  </>
+                )}
               </motion.button>
             </div>
           </motion.div>
