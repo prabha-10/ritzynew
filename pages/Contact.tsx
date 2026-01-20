@@ -20,12 +20,12 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <div className="pt-32 min-h-screen bg-smart-bg">
-      <Section className="pb-0 !pt-0">
-        <div className="bg-smart-dark rounded-3xl p-6 md:p-12 text-center text-white relative overflow-hidden">
+    <div className="pt-24 min-h-screen bg-smart-bg">
+      <Section className="pb-0">
+        <div className="bg-smart-dark rounded-3xl p-8 md:p-24 text-center text-white relative overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-          <h1 className="text-3xl md:text-5xl font-bold mb-4 relative z-10">Get in Touch</h1>
-          <p className="text-gray-300 text-base md:text-lg relative z-10">Let's discuss your vision and build something extraordinary.</p>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 relative z-10">Get in Touch</h1>
+          <p className="text-gray-300 text-lg md:text-xl relative z-10">Let's discuss your vision and build something extraordinary.</p>
         </div>
       </Section>
 

@@ -38,6 +38,9 @@ export const Header: React.FC = () => {
     setIsProductsHovered(false);
   }, [location]);
 
+  // Pages with light backgrounds that need dark header text
+  const isLightPage = location.pathname === '/contact';
+
   const handleMouseEnter = () => {
     if (hoverTimeoutRef.current) clearTimeout(hoverTimeoutRef.current);
     setIsProductsHovered(true);
@@ -68,8 +71,8 @@ export const Header: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled || isProductsHovered
-        ? 'bg-white/90 backdrop-blur-md py-4 shadow-sm border-b border-gray-100' // Solid/Glass on scroll or hover
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled || isProductsHovered || isLightPage
+        ? 'bg-white/90 backdrop-blur-md py-4 shadow-sm border-b border-gray-100'
         : 'bg-transparent py-6'
         }`}
     >
@@ -86,7 +89,7 @@ export const Header: React.FC = () => {
         </NavLink>
 
         {/* Desktop Nav */}
-        <nav className={`hidden md:flex items-center rounded-full px-2 py-1 transition-all duration-300 ${isScrolled || isProductsHovered ? 'bg-transparent border-none' : 'bg-transparent backdrop-blur-xl border border-black/5 shadow-sm'
+        <nav className={`hidden md:flex items-center rounded-full px-2 py-1 transition-all duration-300 ${isScrolled || isProductsHovered || isLightPage ? 'bg-transparent border-none' : 'bg-transparent backdrop-blur-xl border border-black/5 shadow-sm'
           }`}>
           <div className="flex items-center gap-1 px-4 py-2.5 relative">
             {NAV_ITEMS.map((item) => {
@@ -103,7 +106,7 @@ export const Header: React.FC = () => {
                       className={({ isActive }) =>
                         `px-5 py-2 text-sm font-medium rounded-full transition-all duration-300 flex items-center gap-1 cursor-pointer ${isActive || isProductsHovered
                           ? 'bg-gray-100 text-smart-dark'
-                          : `${isScrolled ? 'text-smart-dark' : 'text-white'} hover:bg-white/10 hover:text-smart-dark`
+                          : `${isScrolled || isLightPage ? 'text-smart-dark' : 'text-white'} hover:bg-white/10 hover:text-smart-dark`
                         }`
                       }
                     >
@@ -123,7 +126,7 @@ export const Header: React.FC = () => {
                   className={({ isActive }) =>
                     `px-5 py-2 text-sm font-medium rounded-full transition-all duration-300 ${isActive
                       ? 'bg-white text-smart-dark shadow-md'
-                      : `${isScrolled || isProductsHovered ? 'text-smart-dark' : 'text-white'} hover:bg-white/10`
+                      : `${isScrolled || isProductsHovered || isLightPage ? 'text-smart-dark' : 'text-white'} hover:bg-white/10`
                     }`
                   }
                 >
@@ -136,7 +139,7 @@ export const Header: React.FC = () => {
 
         {/* Actions */}
         <div className="hidden md:flex items-center gap-4 relative z-50">
-          <div className={`flex items-center gap-4 ${isScrolled || isProductsHovered ? 'text-smart-text' : 'text-white'}`}>
+          <div className={`flex items-center gap-4 ${isScrolled || isProductsHovered || isLightPage ? 'text-smart-text' : 'text-white'}`}>
             <Search size={20} className="cursor-pointer hover:text-smart-accent transition-colors" />
           </div>
           <Link to="/contact">
