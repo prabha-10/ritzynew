@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { motion } from 'framer-motion';
 import { Section } from '../components/ui/Section';
 import { Button } from '../components/ui/Button';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
@@ -20,14 +21,27 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <div className="pt-24 min-h-screen bg-smart-bg">
-      <Section className="pb-0">
-        <div className="bg-smart-dark rounded-3xl p-8 md:p-24 text-center text-white relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-full opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 relative z-10">Get in Touch</h1>
-          <p className="text-gray-300 text-lg md:text-xl relative z-10">Let's discuss your vision and build something extraordinary.</p>
+    <div className="bg-white min-h-screen font-sans">
+      {/* Hero Image Section - Like Portfolio */}
+      <div className="relative h-[50vh] min-h-[350px] md:min-h-[400px] overflow-hidden">
+        <img
+          src="/assets/images/img_f765768aa902.jpg"
+          alt="Get in Touch"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="absolute inset-0 flex items-center justify-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center text-white"
+          >
+            <h1 className="text-4xl md:text-7xl font-bold mb-4 tracking-tight drop-shadow-md">Get in Touch</h1>
+            <p className="text-lg md:text-xl font-light tracking-wide opacity-90 drop-shadow-sm">Let's discuss your vision and build something extraordinary.</p>
+          </motion.div>
         </div>
-      </Section>
+      </div>
 
       <Section>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
