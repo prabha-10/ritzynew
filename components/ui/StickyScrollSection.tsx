@@ -58,7 +58,7 @@ export const StickyScrollSection: React.FC<StickyScrollSectionProps> = ({
                                     key={item.id}
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: activeIndex === index ? 1 : 0 }}
-                                    transition={{ duration: 0.5 }}
+                                    transition={{ duration: 0.6, ease: "easeInOut" }}
                                     className="absolute inset-0 w-full h-full"
                                 >
                                     <img
@@ -91,6 +91,7 @@ export const StickyScrollSection: React.FC<StickyScrollSectionProps> = ({
                             item={item}
                             index={index}
                             setActiveIndex={setActiveIndex}
+                            isActive={activeIndex === index}
                         />
                     ))}
                 </div>
@@ -103,7 +104,8 @@ const ContentBlock: React.FC<{
     item: ScrollItem;
     index: number;
     setActiveIndex: (index: number) => void;
-}> = ({ item, index, setActiveIndex }) => {
+    isActive: boolean;
+}> = ({ item, index, setActiveIndex, isActive }) => {
     const ref = useRef(null);
     const isInView = useInView(ref, { margin: "-50% 0px -50% 0px" });
 
@@ -121,9 +123,11 @@ const ContentBlock: React.FC<{
             className="h-screen flex flex-col justify-center p-8 snap-center"
         >
             <motion.div
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ margin: "-20%" }}
+                animate={{
+                    opacity: isActive ? 1 : 0.1, // Fade out inactive items significantly
+                    filter: isActive ? "blur(0px)" : "blur(4px)", // Blur inactive items
+                    y: isActive ? 0 : 20
+                }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
             >
                 {/* Mobile Image (Visible only on small screens) */}
@@ -136,7 +140,7 @@ const ContentBlock: React.FC<{
                 </div>
 
                 <div className="flex items-center gap-5 mb-6">
-                    <div className="w-14 h-14 bg-gray-900 text-white rounded-2xl flex items-center justify-center shadow-lg">
+                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg transition-colors duration-500 ${isActive ? 'bg-gray-900 text-white' : 'bg-gray-200 text-gray-400'}`}>
                         <Icon className="w-7 h-7" />
                     </div>
                     <span className="lg:hidden text-sm uppercase tracking-widest text-gray-500 font-bold">
@@ -144,19 +148,19 @@ const ContentBlock: React.FC<{
                     </span>
                 </div>
 
-                <h3 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                <h3 className={`text-3xl md:text-5xl font-bold mb-6 leading-tight transition-colors duration-500 ${isActive ? 'text-gray-900' : 'text-gray-300'}`}>
                     {item.title}
                 </h3>
 
-                <p className="text-xl text-gray-600 mb-8 leading-relaxed font-light">
+                <p className={`text-xl mb-8 leading-relaxed font-light transition-colors duration-500 ${isActive ? 'text-gray-600' : 'text-gray-200'}`}>
                     {item.description}
                 </p>
 
-                <div className="space-y-6 pl-4 border-l-2 border-gray-100">
+                <div className={`space-y-6 pl-4 border-l-2 transition-colors duration-500 ${isActive ? 'border-gray-100' : 'border-transparent'}`}>
                     {item.features.map((feature, i) => (
                         <div key={i}>
-                            <h4 className="text-lg font-bold text-gray-900 mb-1">{feature.title}</h4>
-                            <p className="text-lg text-gray-600 leading-relaxed text-gray-500">
+                            <h4 className={`text-lg font-bold mb-1 transition-colors duration-500 ${isActive ? 'text-gray-900' : 'text-gray-300'}`}>{feature.title}</h4>
+                            <p className={`text-lg leading-relaxed transition-colors duration-500 ${isActive ? 'text-gray-500' : 'text-gray-200'}`}>
                                 {feature.description}
                             </p>
                         </div>
