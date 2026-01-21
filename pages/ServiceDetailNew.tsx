@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import { ServiceHero } from '../components/service/ServiceHero';
 import { EducationalSection } from '../components/service/EducationalSection';
-import { CapabilityCard } from '../components/service/CapabilityCard';
+import { StickyScrollSection } from '../components/ui/StickyScrollSection';
 import { FAQAccordion } from '../components/service/FAQAccordion';
 import { BrandShowcase } from '../components/service/BrandShowcase';
 import { ServiceCTA } from '../components/service/ServiceCTA';
@@ -126,37 +126,13 @@ export const ServiceDetailNew: React.FC = () => {
                 />
             )}
 
-            {/* Capabilities Section */}
+            {/* Capabilities Section (Sticky Scroll) */}
             {service.capabilities && service.capabilities.length > 0 && (
-                <section className="py-24 bg-white">
-                    <div className="max-w-7xl mx-auto px-6 lg:px-12">
-                        <div className="text-center mb-20">
-                            <p className="text-sm uppercase tracking-[0.2em] text-gray-500 mb-6 font-semibold">
-                                Our Expertise
-                            </p>
-                            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
-                                Our Automation Capabilities
-                            </h2>
-                            <p className="text-xl text-gray-600 mt-6 max-w-3xl mx-auto leading-relaxed">
-                                We curate the world's finest technology to deliver control across five key domains.
-                            </p>
-                        </div>
-
-                        {service.capabilities.map((capability, index) => (
-                            <CapabilityCard
-                                key={capability.id}
-                                title={capability.title}
-                                subtitle={capability.subtitle}
-                                description={capability.description}
-                                features={capability.features}
-                                icon={capability.icon}
-                                image={capability.image}
-                                index={index}
-                                isReversed={index % 2 === 1}
-                            />
-                        ))}
-                    </div>
-                </section>
+                <StickyScrollSection
+                    items={service.capabilities}
+                    title="Our Automation Capabilities"
+                    description="We curate the world's finest technology to deliver control across five key domains."
+                />
             )}
 
             {/* Brand Showcase */}
