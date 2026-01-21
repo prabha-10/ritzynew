@@ -4,6 +4,219 @@
     "description": "Smart living solutions for your home.",
     "image": "/assets/images/img_a151a9e5ca5f.jpg",
     "icon": "Home",
+    "seo": {
+        "pageTitle": "The Intelligent Home: Bespoke Smart Automation & Control",
+        "metaDescription": "Transform your living space with integrated home automation. We combine lighting, climate, and security into one intuitive system using Schneider, RTI, and Eelectron."
+    },
+    "hero": {
+        "headline": "The Intelligent Home",
+        "tagline": "Where Luxury Meets Intuition. Control Your World with a Single Touch.",
+        "description": "Experience a home that anticipates your needs, adapts to your lifestyle, and simplifies your world.",
+        "ctaText": "Consult a Specialist",
+        "backgroundImage": "/assets/images/img_a151a9e5ca5f.jpg"
+    },
+    "educational": {
+        "what": {
+            "title": "What is Home Automation?",
+            "content": "True home automation is more than just a collection of \"smart\" gadgets; it is the creation of a unified ecosystem. It connects your lighting, curtains, climate, entertainment, and security into a single \"central nervous system.\" Instead of managing five different remotes or apps, your home acts as one cohesive entity that responds to you instantly."
+        },
+        "why": {
+            "title": "Why Do You Need It?",
+            "intro": "In a modern home, technology should simplify life, not complicate it.",
+            "points": [
+                {
+                    "title": "Simplicity",
+                    "description": "Replace a wall full of confusing switches with one elegant keypad."
+                },
+                {
+                    "title": "Efficiency",
+                    "description": "Your home automatically regulates energy usage—turning off geysers when not needed or adjusting shades to harvest natural light."
+                },
+                {
+                    "title": "Ambience",
+                    "description": "Change the entire mood of a room—lighting, music, and temperature—instantly to suit the occasion."
+                },
+                {
+                    "title": "Peace of Mind",
+                    "description": "Whether you are in the bedroom or on vacation, you have complete visibility and control over your home's security."
+                }
+            ]
+        },
+        "how": {
+            "title": "How Does It Work?",
+            "intro": "At the heart of our systems lies a Controller (the brain).",
+            "steps": [
+                {
+                    "step": 1,
+                    "title": "Input",
+                    "description": "You press a button on a keypad or use a voice command."
+                },
+                {
+                    "step": 2,
+                    "title": "Processing",
+                    "description": "The controller (from brands like RTI or SpeakerCraft) translates your command."
+                },
+                {
+                    "step": 3,
+                    "title": "Action",
+                    "description": "The system simultaneously dims the lights, lowers the AC temperature, and starts your playlist."
+                }
+            ]
+        }
+    },
+    "capabilities": [
+        {
+            "id": "lighting",
+            "title": "Lighting & Curtain Control",
+            "subtitle": "The Atmosphere of Luxury",
+            "description": "Lighting defines the mood of your home. We move beyond simple \"on/off\" to create intelligent \"Scenes.\"",
+            "features": [
+                {
+                    "title": "Automated Shading",
+                    "description": "We integrate motorized curtains and blinds that adjust automatically based on the time of day, protecting your interiors from harsh sunlight while maximizing energy efficiency."
+                },
+                {
+                    "title": "Scene Setting",
+                    "description": "With a single touch of a button labeled \"Dinner,\" the main lights dim, accent lights brighten, and the curtains close for privacy."
+                }
+            ],
+            "icon": "Lightbulb",
+            "image": "/assets/images/img_3c0478faeddc.jpg"
+        },
+        {
+            "id": "keypads",
+            "title": "Designer Keypads & Interfaces",
+            "subtitle": "Sophistication You Can Touch",
+            "description": "Eliminate \"wall acne\"—the clutter of multiple plastic switches. We replace them with architectural interfaces that double as design elements.",
+            "features": [
+                {
+                    "title": "Luxury Materials",
+                    "description": "We feature Blacknova and Tyba keypads, renowned for their premium materials and flush-mount designs that blend seamlessly into modern interiors."
+                },
+                {
+                    "title": "Glass Touch Panels",
+                    "description": "Experience the Schneider Electric and Eelectron ranges, featuring capacitive glass surfaces that offer intuitive control with a sleek, minimalist aesthetic."
+                }
+            ],
+            "icon": "LayoutGrid",
+            "image": "/assets/images/img_064aab9f12a0.jpg"
+        },
+        {
+            "id": "climate",
+            "title": "Climate & Comfort Intelligence",
+            "subtitle": "The Perfect Environment, Always",
+            "description": "Manage your comfort without the hassle. Our systems integrate deeply with your HVAC and electrical infrastructure.",
+            "features": [
+                {
+                    "title": "Holistic Control",
+                    "description": "We automate Fans, Air Conditioning, and Geysers, ensuring high-energy devices run only when needed."
+                },
+                {
+                    "title": "Smart Thermostats",
+                    "description": "Using Eelectron interfaces, the system monitors temperature and humidity, adjusting the climate automatically to maintain your ideal set point."
+                }
+            ],
+            "icon": "Thermometer",
+            "image": "/assets/images/img_0a460184bffc.jpg"
+        },
+        {
+            "id": "garden",
+            "title": "Garden & Outdoor Automation",
+            "subtitle": "Extend Your Living Space",
+            "description": "Intelligence shouldn't stop at the back door. We bring automation to your exterior spaces.",
+            "features": [
+                {
+                    "title": "Landscape Lighting",
+                    "description": "Schedule your garden lights to welcome you home at sunset."
+                },
+                {
+                    "title": "Irrigation Control",
+                    "description": "Smart scheduling ensures your garden is watered efficiently based on weather conditions."
+                },
+                {
+                    "title": "Outdoor Entertainment",
+                    "description": "We integrate outdoor audio solutions (like Garvan Acoustic's \"LOTO\" or SpeakerCraft landscape speakers) that blend into the foliage while delivering high-fidelity sound."
+                }
+            ],
+            "icon": "TreePine",
+            "image": "/assets/images/img_13246fc0455c.jpg"
+        },
+        {
+            "id": "unified",
+            "title": "Unified Control Ecosystems",
+            "subtitle": "One Brain, Total Control",
+            "description": "Connect your devices into a single app or remote.",
+            "features": [
+                {
+                    "title": "The Hub",
+                    "description": "We utilize powerful processors from RTI and Pro Control to bridge the gap between your TV, music, and home systems."
+                },
+                {
+                    "title": "Universal Remotes",
+                    "description": "Put down the five different remotes. Our handheld controllers allow you to manage the TV, Apple TV, Sound System, and Lights from one ergonomic device."
+                }
+            ],
+            "icon": "Cpu",
+            "image": "/assets/images/img_91b150fa96d3.jpg"
+        }
+    ],
+    "brandShowcase": [
+        {
+            "category": "Control Processors",
+            "brands": [
+                "RTI",
+                "Pro Control",
+                "SpeakerCraft"
+            ]
+        },
+        {
+            "category": "Luxury Keypads",
+            "brands": [
+                "Blacknova",
+                "Tyba",
+                "Schneider Electric",
+                "Eelectron"
+            ]
+        },
+        {
+            "category": "Security & Access",
+            "brands": [
+                "One Touch",
+                "OKAS"
+            ]
+        },
+        {
+            "category": "Audio Integration",
+            "brands": [
+                "Denon (HEOS)",
+                "Yamaha (MusicCast)",
+                "Garvan Acoustic"
+            ]
+        }
+    ],
+    "faq": [
+        {
+            "question": "Can I control my home when I am away?",
+            "answer": "Yes. Our systems from RTI and Schneider offer secure remote access apps, allowing you to monitor cameras, unlock doors, or adjust the AC from anywhere in the world."
+        },
+        {
+            "question": "Is the system scalable?",
+            "answer": "Absolutely. We can start by automating a single room—like a Home Cinema or Living Room—and expand to the rest of the house later."
+        },
+        {
+            "question": "What brands do you work with?",
+            "answer": "We partner exclusively with heritage brands and innovators including RTI, Pro Control, Schneider Electric, Eelectron, Blacknova, Tyba, and many more."
+        },
+        {
+            "question": "How long does installation take?",
+            "answer": "Installation timelines vary based on project scope. A single-room automation can be completed in 1-2 days, while a full-home system typically takes 1-2 weeks."
+        }
+    ],
+    "cta": {
+        "headline": "Ready to Live Smarter?",
+        "description": "Don't just live in your home. Interact with it. Contact our automation specialists today to design a system tailored to your lifestyle.",
+        "buttonText": "Get a Free Consultation"
+    },
     "offers": [
         {
             "title": "Lighting & Curtains",
@@ -40,6 +253,10 @@
         }
     ],
     "supportedBrands": [
-        "tyba"
+        "tyba",
+        "rti",
+        "schneider",
+        "eelectron",
+        "blacknova"
     ]
 }

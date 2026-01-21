@@ -5,7 +5,7 @@ import { Header } from './components/layout/Header';
 import { Footer } from './components/layout/Footer';
 import { Home } from './pages/Home';
 import { Services } from './pages/Services';
-import { ServiceDetail } from './pages/ServiceDetail';
+import { ServiceDetailNew } from './pages/ServiceDetailNew';
 import { Products } from './pages/Products';
 import { ProductDetail } from './pages/ProductDetail';
 import { PortfolioDetail } from './pages/PortfolioDetail';
@@ -62,7 +62,7 @@ const App: React.FC = () => {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/services" element={<Services />} />
-                <Route path="/services/:id" element={<ServiceDetail />} />
+                <Route path="/services/:id" element={<ServiceDetailNew />} />
                 <Route path="/products" element={<Products />} />
                 <Route path="/products/:id" element={<ProductDetail />} />
                 <Route path="/portfolio" element={<Portfolio />} />
