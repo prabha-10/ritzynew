@@ -23,18 +23,18 @@ export const FAQAccordion: React.FC<FAQAccordionProps> = ({
     };
 
     return (
-        <section className="py-24 bg-white">
-            <div className="max-w-4xl mx-auto px-6">
+        <section className="py-24 md:py-32 bg-white">
+            <div className="max-w-5xl mx-auto px-6">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center mb-16"
+                    className="text-center mb-20"
                 >
-                    <p className="text-xs uppercase tracking-[0.2em] text-gray-500 mb-4 font-semibold">
+                    <p className="text-sm uppercase tracking-[0.2em] text-gray-500 mb-6 font-bold">
                         Got Questions?
                     </p>
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
                         {title}
                     </h2>
                 </motion.div>

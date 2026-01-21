@@ -18,29 +18,29 @@ export const BrandShowcase: React.FC<BrandShowcaseProps> = ({
     subtitle = 'Reliability is our priority. We partner exclusively with heritage brands and innovators.',
 }) => {
     return (
-        <section className="py-24 bg-gray-900 text-white">
-            <div className="max-w-6xl mx-auto px-6">
+        <section className="py-24 md:py-32 bg-gray-900 text-white">
+            <div className="max-w-7xl mx-auto px-6 lg:px-12">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center mb-16"
+                    className="text-center mb-20"
                 >
-                    <p className="text-xs uppercase tracking-[0.2em] text-gray-500 mb-4 font-semibold">
+                    <p className="text-sm uppercase tracking-[0.2em] text-gray-400 mb-6 font-bold">
                         Our Partners
                     </p>
-                    <h2 className="text-3xl md:text-4xl font-bold mb-4">{title}</h2>
-                    <p className="text-gray-400 max-w-2xl mx-auto">{subtitle}</p>
+                    <h2 className="text-4xl md:text-5xl font-bold mb-6">{title}</h2>
+                    <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">{subtitle}</p>
                 </motion.div>
 
                 <div className="overflow-x-auto">
-                    <table className="w-full min-w-[600px]">
+                    <table className="w-full min-w-[800px]">
                         <thead>
                             <tr className="border-b border-gray-700">
-                                <th className="text-left py-4 px-6 text-xs uppercase tracking-wider text-gray-500 font-semibold">
+                                <th className="text-left py-6 px-8 text-sm uppercase tracking-wider text-gray-500 font-bold w-1/3">
                                     Category
                                 </th>
-                                <th className="text-left py-4 px-6 text-xs uppercase tracking-wider text-gray-500 font-semibold">
+                                <th className="text-left py-6 px-8 text-sm uppercase tracking-wider text-gray-500 font-bold">
                                     Premium Partners
                                 </th>
                             </tr>

@@ -16,28 +16,33 @@ export const ServiceCTA: React.FC<ServiceCTAProps> = ({
     buttonText,
 }) => {
     return (
-        <section className="py-24 bg-[#F7F7F7]">
-            <div className="max-w-4xl mx-auto px-6">
+        <section className="py-24 md:py-32 bg-[#F7F7F7]">
+            <div className="max-w-7xl mx-auto px-6 lg:px-12">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="bg-gray-900 rounded-3xl p-12 md:p-16 text-center text-white"
+                    className="bg-gray-900 rounded-[3rem] p-16 md:p-24 text-center text-white relative overflow-hidden"
                 >
-                    <h2 className="text-3xl md:text-5xl font-bold mb-6">{headline}</h2>
-                    <p className="text-lg text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-                        {description}
-                    </p>
-                    <Link to="/contact">
-                        <Button
-                            variant="primary"
-                            size="lg"
-                            className="px-10 py-4 text-base inline-flex items-center gap-3 group"
-                        >
-                            {buttonText}
-                            <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-                        </Button>
-                    </Link>
+                    {/* Subtle background pill */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-white/5 blur-[100px] rounded-full pointer-events-none" />
+
+                    <div className="relative z-10">
+                        <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-8 tracking-tight">{headline}</h2>
+                        <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed font-light">
+                            {description}
+                        </p>
+                        <Link to="/contact">
+                            <Button
+                                variant="primary"
+                                size="lg"
+                                className="px-12 py-5 text-lg inline-flex items-center gap-3 group"
+                            >
+                                {buttonText}
+                                <ArrowRight className="w-6 h-6 transition-transform group-hover:translate-x-1" />
+                            </Button>
+                        </Link>
+                    </div>
                 </motion.div>
             </div>
         </section>

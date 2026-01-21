@@ -31,12 +31,12 @@ export const ServiceHero: React.FC<ServiceHeroProps> = ({
             </div>
 
             {/* Content */}
-            <div className="relative z-10 max-w-5xl mx-auto px-6 text-center text-white">
+            <div className="relative z-10 max-w-[1440px] mx-auto px-6 md:px-12 text-center text-white w-full">
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="text-sm uppercase tracking-[0.3em] text-white/70 mb-6 font-medium"
+                    className="text-sm md:text-base uppercase tracking-[0.3em] text-white/80 mb-8 font-semibold"
                 >
                     {tagline}
                 </motion.p>
@@ -45,7 +45,7 @@ export const ServiceHero: React.FC<ServiceHeroProps> = ({
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.1 }}
-                    className="text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-[1.1] tracking-tight"
+                    className="text-6xl md:text-8xl lg:text-9xl font-bold mb-10 leading-[1] tracking-tight"
                 >
                     {headline}
                 </motion.h1>
@@ -54,7 +54,7 @@ export const ServiceHero: React.FC<ServiceHeroProps> = ({
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.2 }}
-                    className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed font-light"
+                    className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto mb-12 leading-relaxed font-light"
                 >
                     {description}
                 </motion.p>

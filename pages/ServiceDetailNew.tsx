@@ -129,15 +129,15 @@ export const ServiceDetailNew: React.FC = () => {
             {/* Capabilities Section */}
             {service.capabilities && service.capabilities.length > 0 && (
                 <section className="py-24 bg-white">
-                    <div className="max-w-6xl mx-auto px-6">
-                        <div className="text-center mb-16">
-                            <p className="text-xs uppercase tracking-[0.2em] text-gray-500 mb-4 font-semibold">
+                    <div className="max-w-7xl mx-auto px-6 lg:px-12">
+                        <div className="text-center mb-20">
+                            <p className="text-sm uppercase tracking-[0.2em] text-gray-500 mb-6 font-semibold">
                                 Our Expertise
                             </p>
-                            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+                            <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
                                 Our Automation Capabilities
                             </h2>
-                            <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
+                            <p className="text-xl text-gray-600 mt-6 max-w-3xl mx-auto leading-relaxed">
                                 We curate the world's finest technology to deliver control across five key domains.
                             </p>
                         </div>

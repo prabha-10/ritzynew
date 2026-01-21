@@ -36,12 +36,12 @@ export const CapabilityCard: React.FC<CapabilityCardProps> = ({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '-100px' }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className={`grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center py-16 ${index !== 0 ? 'border-t border-gray-200' : ''
+            className={`grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center py-24 ${index !== 0 ? 'border-t border-gray-200' : ''
                 }`}
         >
             {/* Image */}
             <div className={`${isReversed ? 'lg:order-2' : ''}`}>
-                <div className="relative aspect-[4/3] rounded-3xl overflow-hidden group">
+                <div className="relative aspect-[4/3] rounded-[2.5rem] overflow-hidden group shadow-2xl">
                     <img
                         src={image}
                         alt={title}
@@ -54,30 +54,30 @@ export const CapabilityCard: React.FC<CapabilityCardProps> = ({
 
             {/* Content */}
             <div className={`${isReversed ? 'lg:order-1' : ''}`}>
-                <div className="flex items-center gap-4 mb-6">
-                    <div className="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center">
-                        <Icon className="w-6 h-6 text-white" />
+                <div className="flex items-center gap-5 mb-8">
+                    <div className="w-16 h-16 bg-gray-900 rounded-2xl flex items-center justify-center">
+                        <Icon className="w-8 h-8 text-white" />
                     </div>
-                    <p className="text-xs uppercase tracking-[0.2em] text-gray-500 font-semibold">
+                    <p className="text-sm uppercase tracking-[0.2em] text-gray-500 font-bold">
                         {subtitle}
                     </p>
                 </div>
 
-                <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                <h3 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
                     {title}
                 </h3>
 
-                <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                <p className="text-xl text-gray-600 mb-10 leading-relaxed">
                     {description}
                 </p>
 
-                <div className="space-y-6">
+                <div className="space-y-8">
                     {features.map((feature, i) => (
-                        <div key={i} className="flex gap-4">
-                            <div className="w-2 h-2 bg-gray-900 rounded-full mt-2.5 shrink-0" />
+                        <div key={i} className="flex gap-5">
+                            <div className="w-2.5 h-2.5 bg-gray-900 rounded-full mt-3 shrink-0" />
                             <div>
-                                <h4 className="font-bold text-gray-900 mb-1">{feature.title}</h4>
-                                <p className="text-gray-600 leading-relaxed">
+                                <h4 className="text-xl font-bold text-gray-900 mb-2">{feature.title}</h4>
+                                <p className="text-lg text-gray-600 leading-relaxed">
                                     {feature.description}
                                 </p>
                             </div>
