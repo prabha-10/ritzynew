@@ -84,7 +84,7 @@ export const StickyScrollSection: React.FC<StickyScrollSectionProps> = ({
                 </div>
 
                 {/* Scrollable Content Section (Right) */}
-                <div className="w-full lg:w-1/2 flex flex-col">
+                <div className="w-full lg:w-1/2 flex flex-col snap-y snap-mandatory">
                     {items.map((item, index) => (
                         <ContentBlock
                             key={item.id}
