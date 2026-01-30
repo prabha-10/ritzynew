@@ -18,7 +18,7 @@ export const Services: React.FC = () => {
       id: 'home-automation',
       title: 'Home Automation',
       description: 'Smart living solutions for your home.',
-      image: '/assets/images/img_a151a9e5ca5f.jpg',
+      image: '/assets/images/home_automation_banner.webp',
       slug: 'home-automation',
       heading: 'Smart Living',
       offers: [],
@@ -64,11 +64,12 @@ export const Services: React.FC = () => {
   // Map service IDs to generated visual assets
   const getServiceImage = (id: string, defaultImage: string) => {
     const assetMap: Record<string, string> = {
-      'home-automation': '/assets/images/img_a151a9e5ca5f.jpg',
-      'commercial': '/assets/images/img_03aeedc2754c.jpg',
-      'home-theater': '/assets/images/img_118bcb0b1c73.jpg',
-      'security': '/assets/images/card_security.png',
-      'multi-room-av': '/assets/images/card_entertainment.png',
+      'home-automation': '/assets/images/home_automation_banner.webp',
+      'commercial': '/assets/images/service_commercial_automation.webp',
+      'home-theater': '/assets/images/service_home_theatre.webp',
+      'security': '/assets/images/service_security.webp',
+      'multi-room-av': '/assets/images/service_multi_room_av.webp',
+      'living-room': '/assets/images/service_living_room.webp',
     };
     return assetMap[id] || defaultImage || '/assets/images/img_4fbf3280f66f.jpg';
   };

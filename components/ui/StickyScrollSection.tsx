@@ -1,5 +1,7 @@
-import React, { useRef, useState, useEffect } from "react";
-import { motion, useScroll, useTransform, useSpring, useInView } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
 import * as Icons from "lucide-react";
 
 interface Feature {
@@ -28,11 +30,12 @@ export const StickyScrollSection: React.FC<StickyScrollSectionProps> = ({
     title = "Our Capabilities",
     description = "Experience total control across every dimension of your smart home.",
 }) => {
-    const [activeIndex, setActiveIndex] = useState(0);
+    const containerRef = useRef<HTMLDivElement>(null);
 
     return (
-        <section className="py-24 bg-white relative">
-            <div className="max-w-[1440px] mx-auto px-6 lg:px-12 mb-24 text-center">
+        <section className="py-24 bg-[#F5F5F0]">
+            {/* Section Header */}
+            <div className="max-w-[1440px] mx-auto px-6 lg:px-12 mb-16 text-center">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -48,125 +51,133 @@ export const StickyScrollSection: React.FC<StickyScrollSectionProps> = ({
                 </motion.div>
             </div>
 
-            <div className="max-w-[1440px] mx-auto px-6 lg:px-12 flex flex-col lg:flex-row gap-12 lg:gap-24 relative">
-                {/* Sticky Image Section (Left) */}
-                <div className="hidden lg:block w-1/2 relative">
-                    <div className="sticky top-0 h-screen flex items-center justify-center">
-                        <div className="w-full h-[550px] relative rounded-[2.5rem] overflow-hidden shadow-2xl">
-                            {items.map((item, index) => (
-                                <motion.div
-                                    key={item.id}
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: activeIndex === index ? 1 : 0 }}
-                                    transition={{ duration: 0.6, ease: "easeInOut" }}
-                                    className="absolute inset-0 w-full h-full"
-                                >
-                                    <img
-                                        src={item.image}
-                                        alt={item.title}
-                                        className="w-full h-full object-cover"
-                                    />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-60" />
-
-                                    {/* Text Overlay on Image */}
-                                    <div className="absolute bottom-10 left-10 right-10 text-white">
-                                        <div className="flex items-center gap-4 mb-3">
-                                            <div className="p-2.5 bg-white/20 backdrop-blur-md rounded-xl">
-                                                {React.createElement((Icons as any)[item.icon] || Icons.Zap, { className: "w-6 h-6 text-white" })}
-                                            </div>
-                                            <span className="text-sm uppercase tracking-widest font-bold">{item.subtitle}</span>
-                                        </div>
-                                    </div>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-
-                {/* Scrollable Content Section (Right) */}
-                <div className="w-full lg:w-1/2 flex flex-col snap-y snap-mandatory">
-                    {items.map((item, index) => (
-                        <ContentBlock
-                            key={item.id}
-                            item={item}
-                            index={index}
-                            setActiveIndex={setActiveIndex}
-                            isActive={activeIndex === index}
-                        />
-                    ))}
-                </div>
+            {/* Stacked Cards Container */}
+            <div ref={containerRef} className="relative w-[75%] mx-auto pb-[50vh]">
+                {items.map((item, index) => (
+                    <StackedCard
+                        key={item.id}
+                        item={item}
+                        index={index}
+                        totalItems={items.length}
+                        isLast={index === items.length - 1}
+                    />
+                ))}
             </div>
         </section>
     );
 };
 
-const ContentBlock: React.FC<{
+const StackedCard: React.FC<{
     item: ScrollItem;
     index: number;
-    setActiveIndex: (index: number) => void;
-    isActive: boolean;
-}> = ({ item, index, setActiveIndex, isActive }) => {
-    const ref = useRef(null);
-    const isInView = useInView(ref, { margin: "-50% 0px -50% 0px" });
-
-    useEffect(() => {
-        if (isInView) {
-            setActiveIndex(index);
-        }
-    }, [isInView, index, setActiveIndex]);
-
+    totalItems: number;
+    isLast: boolean;
+}> = ({ item, index, totalItems, isLast }) => {
+    const cardRef = useRef<HTMLDivElement>(null);
     const Icon = (Icons as any)[item.icon] || Icons.Zap;
 
+    // Alternate background colors
+    const isDark = index % 2 === 1;
+
+    const { scrollYProgress } = useScroll({
+        target: cardRef,
+        offset: ["start end", "start start"]
+    });
+
+    // Scale down slightly as it becomes the "background" card
+    const scale = useTransform(scrollYProgress, [0, 1], [0.95, 1]);
+    const y = useTransform(scrollYProgress, [0, 1], [100, 0]);
+
     return (
-        <div
-            ref={ref}
-            className="h-screen flex flex-col justify-center p-8 snap-center"
+        <motion.div
+            ref={cardRef}
+            style={{ scale, y }}
+            className={`sticky top-[calc(50vh-250px)] mb-8 rounded-3xl overflow-hidden shadow-2xl ${isDark ? 'bg-[#1a1a1a]' : 'bg-white'
+                }`}
         >
-            <motion.div
-                animate={{
-                    opacity: isActive ? 1 : 0.1, // Fade out inactive items significantly
-                    filter: isActive ? "blur(0px)" : "blur(4px)", // Blur inactive items
-                    y: isActive ? 0 : 20
-                }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-            >
-                {/* Mobile Image (Visible only on small screens) */}
-                <div className="lg:hidden mb-8 rounded-3xl overflow-hidden aspect-video shadow-lg">
-                    <img
-                        src={item.image}
-                        alt={item.title}
-                        className="w-full h-full object-cover"
-                    />
-                </div>
-
-                <div className="flex items-center gap-5 mb-6">
-                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg transition-colors duration-500 ${isActive ? 'bg-gray-900 text-white' : 'bg-gray-200 text-gray-400'}`}>
-                        <Icon className="w-7 h-7" />
+            <div className="flex flex-col lg:flex-row">
+                {/* Image Section */}
+                <div className="w-full lg:w-2/5 p-6 lg:p-8">
+                    <div className="relative aspect-[4/5] rounded-2xl overflow-hidden">
+                        <img
+                            src={item.image}
+                            alt={item.title}
+                            className="w-full h-full object-cover"
+                        />
                     </div>
-                    <span className="lg:hidden text-sm uppercase tracking-widest text-gray-500 font-bold">
-                        {item.subtitle}
-                    </span>
                 </div>
 
-                <h3 className={`text-3xl md:text-5xl font-bold mb-6 leading-tight transition-colors duration-500 ${isActive ? 'text-gray-900' : 'text-gray-300'}`}>
-                    {item.title}
-                </h3>
+                {/* Content Section */}
+                <div className={`w-full lg:w-3/5 p-6 lg:p-10 flex flex-col justify-center ${isDark ? 'text-white' : 'text-gray-900'
+                    }`}>
+                    {/* Title */}
+                    <h3 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
+                        {item.title}
+                    </h3>
 
-                <p className={`text-xl mb-8 leading-relaxed font-light transition-colors duration-500 ${isActive ? 'text-gray-600' : 'text-gray-200'}`}>
-                    {item.description}
-                </p>
+                    {/* Description */}
+                    <p className={`text-lg mb-6 leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-600'
+                        }`}>
+                        {item.description}
+                    </p>
 
-                <div className={`space-y-6 pl-4 border-l-2 transition-colors duration-500 ${isActive ? 'border-gray-100' : 'border-transparent'}`}>
-                    {item.features.map((feature, i) => (
-                        <div key={i}>
-                            <h4 className={`text-lg font-bold mb-1 transition-colors duration-500 ${isActive ? 'text-gray-900' : 'text-gray-300'}`}>{feature.title}</h4>
-                            <p className={`text-lg leading-relaxed transition-colors duration-500 ${isActive ? 'text-gray-500' : 'text-gray-200'}`}>
-                                {feature.description}
-                            </p>
+                    {/* Tags */}
+                    <div className="flex flex-wrap gap-3 mb-8">
+                        <span className={`px-4 py-2 rounded-full text-sm font-medium ${isDark ? 'bg-white/10 text-white' : 'bg-gray-100 text-gray-700'
+                            }`}>
+                            {item.subtitle}
+                        </span>
+                        <span className={`px-4 py-2 rounded-full text-sm font-medium ${isDark ? 'bg-white/10 text-white' : 'bg-gray-100 text-gray-700'
+                            }`}>
+                            Smart Home
+                        </span>
+                    </div>
+
+                    {/* Quote/Features Section */}
+                    <div className={`border-l-2 pl-6 ${isDark ? 'border-gray-700' : 'border-gray-200'
+                        }`}>
+                        <div className={`text-4xl font-serif mb-3 ${isDark ? 'text-gray-500' : 'text-gray-300'
+                            }`}>"</div>
+                        <div className="space-y-4">
+                            {item.features.map((feature, i) => (
+                                <div key={i}>
+                                    <p className={`text-lg leading-relaxed ${isDark ? 'text-gray-300' : 'text-gray-600'
+                                        }`}>
+                                        <strong className={isDark ? 'text-white' : 'text-gray-900'}>
+                                            {feature.title}:
+                                        </strong>{' '}
+                                        {feature.description}
+                                    </p>
+                                </div>
+                            ))}
                         </div>
-                    ))}
+
+                        {/* Author/Brand Attribution */}
+                        <div className="flex items-center justify-between mt-6">
+                            <div className="flex items-center gap-3">
+                                <div className={`w-10 h-10 rounded-full flex items-center justify-center ${isDark ? 'bg-white/20' : 'bg-gray-100'
+                                    }`}>
+                                    <Icon className={`w-5 h-5 ${isDark ? 'text-white' : 'text-gray-700'}`} />
+                                </div>
+                                <span className={`text-sm font-medium ${isDark ? 'text-gray-400' : 'text-gray-500'
+                                    }`}>
+                                    Ritzy Lifestyle
+                                </span>
+                            </div>
+                            <Link
+                                to={item.id === 'lighting' ? '/products/lighting' : `/products#${item.id}`}
+                                className={`inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium text-sm transition-all duration-300 ${isDark
+                                    ? 'bg-white text-gray-900 hover:bg-gray-200'
+                                    : 'bg-gray-900 text-white hover:bg-gray-700'
+                                    }`}
+                            >
+                                View Products
+                                <ArrowRight className="w-4 h-4" />
+                            </Link>
+                        </div>
+                    </div>
                 </div>
-            </motion.div>
-        </div>
+            </div>
+        </motion.div>
     );
 };

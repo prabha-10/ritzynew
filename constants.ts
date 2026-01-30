@@ -103,7 +103,7 @@ export const SERVICES: Service[] = [
     category: ServiceCategory.COMMERCIAL,
     icon: Building,
     features: ['Office Automation', 'Hotels/Restaurants', 'Hospitality'],
-    image: '/assets/images/img_03aeedc2754c.jpg',
+    image: '/assets/images/service_commercial_automation.webp',
   },
   {
     id: 'home-theater',
@@ -112,7 +112,7 @@ export const SERVICES: Service[] = [
     category: ServiceCategory.HOME_THEATER,
     icon: Speaker,
     features: ['4K Projection', 'Dolby Atmos', 'Acoustic Treatment'],
-    image: '/assets/images/img_118bcb0b1c73.jpg',
+    image: '/assets/images/service_home_theatre.webp',
   },
   {
     id: 'living-room',
@@ -121,7 +121,7 @@ export const SERVICES: Service[] = [
     category: ServiceCategory.HOME_THEATER,
     icon: Tv,
     features: ['Hidden Displays', 'High Fidelity', 'Media Integration'],
-    image: '/assets/images/img_5bdefbaf2ff4.jpg',
+    image: '/assets/images/service_living_room.webp',
   },
   {
     id: 'multi-room-av',
@@ -130,7 +130,7 @@ export const SERVICES: Service[] = [
     category: ServiceCategory.HOME_THEATER,
     icon: Speaker,
     features: ['Zone Wise Speakers', 'Centralized Sources', 'App Control'],
-    image: '/assets/images/card_entertainment.png',
+    image: '/assets/images/service_multi_room_av.webp',
   },
   {
     id: 'security',
@@ -139,7 +139,7 @@ export const SERVICES: Service[] = [
     category: ServiceCategory.EXTERIOR,
     icon: ShieldCheck,
     features: ['CCTV', 'Intrusion Detection', 'Smart Locks'],
-    image: '/assets/images/card_security.png',
+    image: '/assets/images/service_security.webp',
   },
   {
     id: 'controllers',
@@ -148,7 +148,7 @@ export const SERVICES: Service[] = [
     category: ServiceCategory.HOME_AUTOMATION,
     icon: Gamepad,
     features: ['Universal Remote', 'Touch Panels', 'Voice Control'],
-    image: '/assets/images/img_91b150fa96d3.jpg',
+    image: '/assets/images/service_keypad.webp',
   }
 ];
 

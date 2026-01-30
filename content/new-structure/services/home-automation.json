@@ -2,7 +2,7 @@
     "id": "home-automation",
     "title": "Home Automation",
     "description": "Smart living solutions for your home.",
-    "image": "/assets/images/img_a151a9e5ca5f.jpg",
+    "image": "/assets/images/home_automation_banner.webp",
     "icon": "Home",
     "seo": {
         "pageTitle": "The Intelligent Home: Bespoke Smart Automation & Control",
@@ -13,7 +13,7 @@
         "tagline": "Where Luxury Meets Intuition. Control Your World with a Single Touch.",
         "description": "Experience a home that anticipates your needs, adapts to your lifestyle, and simplifies your world.",
         "ctaText": "Consult a Specialist",
-        "backgroundImage": "/assets/images/img_a151a9e5ca5f.jpg"
+        "backgroundImage": "/assets/images/home_automation_banner.webp"
     },
     "educational": {
         "what": {
@@ -67,97 +67,129 @@
     "capabilities": [
         {
             "id": "lighting",
-            "title": "Lighting & Curtain Control",
-            "subtitle": "The Atmosphere of Luxury",
-            "description": "Lighting defines the mood of your home. We move beyond simple \"on/off\" to create intelligent \"Scenes.\"",
+            "title": "Lighting Control",
+            "subtitle": "Illuminate Your Life",
+            "description": "Transform your home's atmosphere with intelligent lighting. Create the perfect ambiance for any occasion with a single touch.",
             "features": [
                 {
-                    "title": "Automated Shading",
-                    "description": "We integrate motorized curtains and blinds that adjust automatically based on the time of day, protecting your interiors from harsh sunlight while maximizing energy efficiency."
+                    "title": "Scene Setting",
+                    "description": "Recall preset lighting scenes like 'Dinner', 'Party', or 'Relax' instantly."
                 },
                 {
-                    "title": "Scene Setting",
-                    "description": "With a single touch of a button labeled \"Dinner,\" the main lights dim, accent lights brighten, and the curtains close for privacy."
+                    "title": "Human Centric",
+                    "description": "Lighting that adjusts its temperature throughout the day to match your circadian rhythm."
                 }
             ],
             "icon": "Lightbulb",
-            "image": "/assets/images/img_3c0478faeddc.jpg"
+            "image": "/assets/images/home_automation_lighting.webp"
+        },
+        {
+            "id": "curtains",
+            "title": "Curtains & Shading",
+            "subtitle": "Natural Light Management",
+            "description": "Automated window treatments that provide convenience, privacy, and energy efficiency.",
+            "features": [
+                {
+                    "title": "Sunlight Harvesting",
+                    "description": "Blinds that adjust automatically to let in natural light while minimizing heat gain."
+                },
+                {
+                    "title": "Privacy Mode",
+                    "description": "One-touch privacy for bedrooms and living areas."
+                }
+            ],
+            "icon": "Blinds",
+            "image": "/assets/images/home_automation_curtain.webp"
         },
         {
             "id": "keypads",
-            "title": "Designer Keypads & Interfaces",
-            "subtitle": "Sophistication You Can Touch",
-            "description": "Eliminate \"wall acne\"—the clutter of multiple plastic switches. We replace them with architectural interfaces that double as design elements.",
+            "title": "Keypad Automation",
+            "subtitle": "Elegant Interfaces",
+            "description": "Replace wall clutter with sophisticated, architectural keypads.",
             "features": [
                 {
-                    "title": "Luxury Materials",
-                    "description": "We feature Blacknova and Tyba keypads, renowned for their premium materials and flush-mount designs that blend seamlessly into modern interiors."
+                    "title": "Designer Finishes",
+                    "description": "Premium materials like metal and glass that complement your interior design."
                 },
                 {
-                    "title": "Glass Touch Panels",
-                    "description": "Experience the Schneider Electric and Eelectron ranges, featuring capacitive glass surfaces that offer intuitive control with a sleek, minimalist aesthetic."
+                    "title": "Custom Engraving",
+                    "description": "Backlit, engraved buttons ensure you always know which light you're controlling."
                 }
             ],
             "icon": "LayoutGrid",
-            "image": "/assets/images/img_064aab9f12a0.jpg"
+            "image": "/assets/images/home_automation_keypads.webp"
         },
         {
             "id": "climate",
-            "title": "Climate & Comfort Intelligence",
-            "subtitle": "The Perfect Environment, Always",
-            "description": "Manage your comfort without the hassle. Our systems integrate deeply with your HVAC and electrical infrastructure.",
+            "title": "Climate Control",
+            "subtitle": "Perfect Comfort",
+            "description": "Maintain the ideal temperature and humidity in every room, automatically.",
             "features": [
                 {
-                    "title": "Holistic Control",
-                    "description": "We automate Fans, Air Conditioning, and Geysers, ensuring high-energy devices run only when needed."
+                    "title": "Smart Scheduling",
+                    "description": "Climate systems that learn your schedule to save energy when you're away."
                 },
                 {
-                    "title": "Smart Thermostats",
-                    "description": "Using Eelectron interfaces, the system monitors temperature and humidity, adjusting the climate automatically to maintain your ideal set point."
+                    "title": "Zoned Comfort",
+                    "description": "Individual temperature controls for every room in the house."
                 }
             ],
             "icon": "Thermometer",
-            "image": "/assets/images/img_0a460184bffc.jpg"
+            "image": "/assets/images/home_automation_climate_control.webp"
+        },
+        {
+            "id": "devices",
+            "title": "Devices (Fan, TV, Geyser)",
+            "subtitle": "Unified Device Control",
+            "description": "Seamlessly integrate everyday appliances into your smart home ecosystem.",
+            "features": [
+                {
+                    "title": "Appliance Integration",
+                    "description": "Control fans, TVs, and geysers from the same app as your lights."
+                },
+                {
+                    "title": "Energy Management",
+                    "description": "Monitor and optimize the energy consumption of high-load devices."
+                }
+            ],
+            "icon": "Tv",
+            "image": "/assets/images/home_automation_devices.webp"
         },
         {
             "id": "garden",
-            "title": "Garden & Outdoor Automation",
-            "subtitle": "Extend Your Living Space",
-            "description": "Intelligence shouldn't stop at the back door. We bring automation to your exterior spaces.",
+            "title": "Garden Automation",
+            "subtitle": "Exterior Intelligence",
+            "description": "Keep your outdoor spaces lush and inviting with automated care.",
             "features": [
+                {
+                    "title": "Smart Irrigation",
+                    "description": "Watering systems that adjust based on weather forecasts and soil moisture."
+                },
                 {
                     "title": "Landscape Lighting",
-                    "description": "Schedule your garden lights to welcome you home at sunset."
-                },
-                {
-                    "title": "Irrigation Control",
-                    "description": "Smart scheduling ensures your garden is watered efficiently based on weather conditions."
-                },
-                {
-                    "title": "Outdoor Entertainment",
-                    "description": "We integrate outdoor audio solutions (like Garvan Acoustic's \"LOTO\" or SpeakerCraft landscape speakers) that blend into the foliage while delivering high-fidelity sound."
+                    "description": "Automated lighting that enhances your garden's beauty at night."
                 }
             ],
-            "icon": "TreePine",
-            "image": "/assets/images/img_13246fc0455c.jpg"
+            "icon": "Flower2",
+            "image": "/assets/images/home_automation_outdoor_garden.webp"
         },
         {
-            "id": "unified",
-            "title": "Unified Control Ecosystems",
-            "subtitle": "One Brain, Total Control",
-            "description": "Connect your devices into a single app or remote.",
+            "id": "outdoor",
+            "title": "Outdoor Automation",
+            "subtitle": "Alfresco Living",
+            "description": "Extend your entertainment experience to the patio and pool.",
             "features": [
                 {
-                    "title": "The Hub",
-                    "description": "We utilize powerful processors from RTI and Pro Control to bridge the gap between your TV, music, and home systems."
+                    "title": "Outdoor Media",
+                    "description": "Weather-proof TVs and landscape speakers for year-round entertainment."
                 },
                 {
-                    "title": "Universal Remotes",
-                    "description": "Put down the five different remotes. Our handheld controllers allow you to manage the TV, Apple TV, Sound System, and Lights from one ergonomic device."
+                    "title": "Pool Control",
+                    "description": "Manage pool temperature, pumps, and lighting remotely."
                 }
             ],
-            "icon": "Cpu",
-            "image": "/assets/images/img_91b150fa96d3.jpg"
+            "icon": "Sun",
+            "image": "/assets/images/home_automation_outdoor_motorized_gate.webp"
         }
     ],
     "brandShowcase": [
@@ -219,37 +251,77 @@
     },
     "offers": [
         {
-            "title": "Lighting & Curtains",
+            "id": "lighting",
+            "title": "Lighting",
             "brands": [
-                "tyba"
+                "Lutron",
+                "Philips Hue",
+                "Schneider"
             ],
-            "image": "/assets/images/img_3c0478faeddc.jpg"
+            "image": "/assets/images/home_automation_lighting.webp",
+            "link": "/products/lighting"
         },
         {
-            "title": "Keypads Automation",
+            "id": "curtains",
+            "title": "Curtains & Shading",
             "brands": [
-                "tyba"
+                "Somfy",
+                "Lutron"
             ],
-            "image": "/assets/images/img_064aab9f12a0.jpg"
+            "image": "/assets/images/home_automation_curtain.webp",
+            "link": "/products/curtains"
         },
         {
+            "id": "keypads",
+            "title": "Keypad Automation",
+            "brands": [
+                "Blacknova",
+                "Tyba",
+                "Eelectron"
+            ],
+            "image": "/assets/images/home_automation_keypads.webp",
+            "link": "/products/keypads"
+        },
+        {
+            "id": "climate",
             "title": "Climate Control",
-            "subProducts": [
-                "Fan",
-                "TV",
-                "Geyser"
-            ],
             "brands": [
-                "tyba"
+                "Nest",
+                "Ecobee",
+                "Schneider"
             ],
-            "image": "/assets/images/img_0a460184bffc.jpg"
+            "image": "/assets/images/home_automation_climate_control.webp",
+            "link": "/products/climate"
         },
         {
+            "id": "devices",
+            "title": "Devices",
+            "brands": [
+                "RTI",
+                "Control4"
+            ],
+            "image": "/assets/images/home_automation_devices.webp",
+            "link": "/products/devices"
+        },
+        {
+            "id": "garden",
             "title": "Garden Automation",
             "brands": [
-                "tyba"
+                "Rachio",
+                "Hunter"
             ],
-            "image": "/assets/images/img_13246fc0455c.jpg"
+            "image": "/assets/images/home_automation_outdoor_garden.webp",
+            "link": "/products/garden"
+        },
+        {
+            "id": "outdoor",
+            "title": "Outdoor Automation",
+            "brands": [
+                "One Touch",
+                "OKAS"
+            ],
+            "image": "/assets/images/home_automation_outdoor_motorized_gate.webp",
+            "link": "/products/outdoor"
         }
     ],
     "supportedBrands": [

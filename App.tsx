@@ -13,13 +13,45 @@ import { About } from './pages/About';
 import { Contact } from './pages/Contact';
 import { Portfolio } from './pages/Portfolio';
 import { Admin } from './pages/Admin';
+import { LightingProducts } from './pages/LightingProducts';
+import { ChatWidget } from './components/chat/ChatWidget';
 
 // Scroll to top on route change
 const ScrollToTop = () => {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
+
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    // Disable browser's automatic scroll restoration
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+
+    // Don't scroll to top if there's a hash (anchor link)
+    if (hash && hash !== '') return;
+
+    const resetScroll = () => {
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    };
+
+    // Stage 1: Immediate reset
+    resetScroll();
+
+    // Stage 2: Next frame reset
+    const rafId = requestAnimationFrame(resetScroll);
+
+    // Stage 3: Multiple timed resets to catch layout shifts and Lenis inertia
+    const timerIds = [10, 50, 100, 300, 600, 1000].map(delay =>
+      setTimeout(resetScroll, delay)
+    );
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      timerIds.forEach(clearTimeout);
+    };
+  }, [pathname, hash]);
+
   return null;
 };
 
@@ -58,12 +90,14 @@ const App: React.FC = () => {
         <Route path="*" element={
           <div className="flex flex-col min-h-screen bg-smart-bg text-smart-text selection:bg-smart-accent selection:text-white font-sans">
             <Header />
+            <ChatWidget />
             <main className="flex-grow">
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/services/:id" element={<ServiceDetailNew />} />
                 <Route path="/products" element={<Products />} />
+                <Route path="/products/lighting" element={<LightingProducts />} />
                 <Route path="/products/:id" element={<ProductDetail />} />
                 <Route path="/portfolio" element={<Portfolio />} />
                 <Route path="/portfolio/:id" element={<PortfolioDetail />} />

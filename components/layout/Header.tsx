@@ -18,6 +18,10 @@ export const Header: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
+  // Pages that should have white text when transparent at top
+  const isDarkHeroPage = location.pathname === '/';
+  const isLightBg = !isDarkHeroPage;
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
@@ -53,12 +57,10 @@ export const Header: React.FC = () => {
     setActiveService(service);
   };
 
-  // Helper to extract brands - prioritize supportedBrands, fallback to offer brands
   const getBrands = (service: ServiceSection) => {
     if (service.supportedBrands && service.supportedBrands.length > 0) {
       return service.supportedBrands;
     }
-    // Fallback: collect unique brands from offers
     if (service.offers) {
       const allBrands = service.offers.flatMap(o => o.brands || []);
       return Array.from(new Set(allBrands));
@@ -69,12 +71,11 @@ export const Header: React.FC = () => {
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${isScrolled || isProductsHovered
-        ? 'bg-white/90 backdrop-blur-md py-4 shadow-sm border-b border-gray-100' // Solid/Glass on scroll or hover
+        ? 'bg-white/90 backdrop-blur-md py-4 shadow-sm border-b border-gray-100'
         : 'bg-transparent py-6'
         }`}
     >
       <div className="max-w-[1440px] mx-auto px-6 md:px-12 flex items-center justify-between relative">
-        {/* Logo */}
         <NavLink to="/" className="flex items-center group relative z-50">
           <div className="w-16 h-16 relative">
             <img
@@ -85,8 +86,7 @@ export const Header: React.FC = () => {
           </div>
         </NavLink>
 
-        {/* Desktop Nav */}
-        <nav className={`hidden md:flex items-center rounded-full px-2 py-1 transition-all duration-300 ${isScrolled || isProductsHovered ? 'bg-transparent border-none' : 'bg-transparent backdrop-blur-xl border border-black/5 shadow-sm'
+        <nav className={`hidden md:flex items-center rounded-full px-2 py-1 transition-all duration-300 ${isScrolled || isProductsHovered ? 'bg-transparent border-none' : `bg-transparent backdrop-blur-xl border ${isLightBg ? 'border-black/10' : 'border-black/5'} shadow-sm`
           }`}>
           <div className="flex items-center gap-1 px-4 py-2.5 relative">
             {NAV_ITEMS.map((item) => {
@@ -103,7 +103,7 @@ export const Header: React.FC = () => {
                       className={({ isActive }) =>
                         `px-5 py-2 text-sm font-medium rounded-full transition-all duration-300 flex items-center gap-1 cursor-pointer ${isActive || isProductsHovered
                           ? 'bg-gray-100 text-smart-dark'
-                          : `${isScrolled ? 'text-smart-dark' : 'text-white'} hover:bg-white/10 hover:text-smart-dark`
+                          : `${isScrolled || isLightBg ? 'text-smart-dark' : 'text-white'} hover:bg-black/5 hover:text-smart-dark`
                         }`
                       }
                     >
@@ -122,8 +122,8 @@ export const Header: React.FC = () => {
                   to={item.path}
                   className={({ isActive }) =>
                     `px-5 py-2 text-sm font-medium rounded-full transition-all duration-300 ${isActive
-                      ? 'bg-white text-smart-dark shadow-md'
-                      : `${isScrolled || isProductsHovered ? 'text-smart-dark' : 'text-white'} hover:bg-white/10`
+                      ? 'bg-white text-smart-dark shadow-md border border-gray-100'
+                      : `${isScrolled || isProductsHovered || isLightBg ? 'text-smart-dark' : 'text-white'} hover:bg-black/5`
                     }`
                   }
                 >
@@ -134,9 +134,8 @@ export const Header: React.FC = () => {
           </div>
         </nav>
 
-        {/* Actions */}
         <div className="hidden md:flex items-center gap-4 relative z-50">
-          <div className={`flex items-center gap-4 ${isScrolled || isProductsHovered ? 'text-smart-text' : 'text-white'}`}>
+          <div className={`flex items-center gap-4 ${isScrolled || isProductsHovered || isLightBg ? 'text-smart-dark' : 'text-white'}`}>
             <Search size={20} className="cursor-pointer hover:text-smart-accent transition-colors" />
           </div>
           <Link to="/contact">
@@ -146,15 +145,13 @@ export const Header: React.FC = () => {
           </Link>
         </div>
 
-        {/* Mobile Toggle */}
         <button
-          className={`md:hidden relative z-50 ${isScrolled ? 'text-smart-text' : 'text-white'}`}
+          className={`md:hidden relative z-50 ${isScrolled || isLightBg ? 'text-smart-dark' : 'text-white'}`}
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
 
-        {/* MEGA MENU DROPDOWN - Centered on Page/Header Container */}
         <AnimatePresence>
           {isProductsHovered && services.length > 0 && (
             <motion.div
@@ -165,17 +162,14 @@ export const Header: React.FC = () => {
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
               className="absolute top-full left-0 w-full pt-4 z-40"
-            // Removed specific width constraints to let it fill the 1440px container
             >
-              <div className="bg-white/95 backdrop-blur-2xl rounded-3xl shadow-2xl border border-gray-100 overflow-hidden text-smart-text p-8 mx-4 md:mx-0">
-
-                {/* 1. Services Row (Tabs) */}
-                <div className="flex items-center gap-2 mb-8 overflow-x-auto pb-2 border-b border-gray-100 no-scrollbar">
+              <div className="bg-white/95 backdrop-blur-2xl rounded-3xl shadow-2xl border border-gray-100 overflow-hidden text-smart-text p-6 mx-4 md:mx-0">
+                <div className="flex items-center gap-2 mb-4 overflow-x-auto pb-1 border-b border-gray-100 no-scrollbar">
                   {services.map((service) => (
                     <button
                       key={service.id}
                       onMouseEnter={() => handleServiceHover(service)}
-                      className={`px-4 py-2 rounded-full text-sm font-medium transition-all whitespace-nowrap ${activeService?.id === service.id
+                      className={`px-3 py-1.5 rounded-full text-xs font-medium transition-all whitespace-nowrap ${activeService?.id === service.id
                         ? 'bg-smart-accent text-white shadow-md'
                         : 'bg-gray-50 text-gray-500 hover:bg-gray-100'
                         }`}
@@ -185,43 +179,42 @@ export const Header: React.FC = () => {
                   ))}
                 </div>
 
-                {/* 2. Content Area (Products & Brands) */}
                 {activeService && (
                   <motion.div
                     key={activeService.id}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.3 }}
-                    className="grid grid-cols-1 lg:grid-cols-4 gap-8 text-left"
+                    className="grid grid-cols-1 lg:grid-cols-4 gap-6 text-left"
                   >
-                    {/* Left: Service Info & Link */}
-                    <div className="lg:col-span-1 pr-6 border-r border-gray-100">
-                      <h3 className="text-2xl font-bold mb-2">{activeService.title}</h3>
-                      <p className="text-sm text-gray-500 mb-6 leading-relaxed">
+                    <div className="lg:col-span-1 pr-4 border-r border-gray-100">
+                      <h3 className="text-xl font-bold mb-1">{activeService.title}</h3>
+                      <p className="text-xs text-gray-500 mb-4 leading-relaxed line-clamp-3">
                         {activeService.description}
                       </p>
                       <Link
                         to={`/services/${activeService.id}`}
                         onClick={() => setIsProductsHovered(false)}
                       >
-                        <Button size="sm" variant="outline" className="w-full justify-between group">
-                          Explore Service <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                        <Button size="sm" variant="outline" className="w-full justify-between group py-1 h-9">
+                          Explore Service <ChevronRight size={14} className="group-hover:translate-x-1 transition-transform" />
                         </Button>
                       </Link>
                     </div>
 
-                    {/* Right: Products & Brands */}
                     <div className="lg:col-span-3">
                       {/* Products Grid */}
-                      <div className="mb-8">
-                        <h4 className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-4">Products & Categories</h4>
-                        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                          {activeService.offers?.map((offer, i) => (
-                            <div
+                      <div className="mb-4">
+                        <h4 className="text-[10px] font-bold uppercase tracking-wider text-gray-400 mb-2">Products & Categories</h4>
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                          {activeService.offers?.map((offer: any, i: number) => (
+                            <Link
                               key={i}
-                              className="group flex flex-col gap-2 p-3 rounded-xl hover:bg-gray-50 transition-colors cursor-default"
+                              to={offer.link || (offer.id === 'lighting' ? '/products/lighting' : `/products#${offer.id || ''}`)}
+                              onClick={() => setIsProductsHovered(false)}
+                              className="group flex flex-col gap-1.5 p-2 rounded-xl hover:bg-gray-50 transition-colors"
                             >
-                              <div className="aspect-video rounded-lg overflow-hidden bg-gray-200">
+                              <div className="aspect-[4/3] rounded-lg overflow-hidden bg-gray-200">
                                 <img
                                   src={offer.image || activeService.image}
                                   alt={offer.title}
@@ -230,20 +223,19 @@ export const Header: React.FC = () => {
                                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                                 />
                               </div>
-                              <span className="font-medium text-sm text-gray-800">{offer.title}</span>
-                            </div>
+                              <span className="font-medium text-[12px] text-gray-800 group-hover:text-amber-600 transition-colors line-clamp-1 text-center">{offer.title}</span>
+                            </Link>
                           ))}
                         </div>
                       </div>
 
-                      {/* Brands Row */}
                       <div>
                         <h4 className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-3">Supported Brands</h4>
                         <div className="flex flex-wrap gap-3">
                           {getBrands(activeService).map((brand, i) => (
                             <span
                               key={i}
-                              className="px-3 py-1 bg-gray-100 rounded text-xs font-medium text-gray-600 uppercase"
+                              className="px-2 py-0.5 bg-gray-100 rounded text-[10px] font-medium text-gray-600 uppercase"
                             >
                               {brand}
                             </span>
@@ -257,10 +249,8 @@ export const Header: React.FC = () => {
             </motion.div>
           )}
         </AnimatePresence>
-
       </div>
 
-      {/* Mobile Menu */}
       <div
         className={`fixed inset-0 bg-white z-40 transform transition-transform duration-300 pt-32 px-8 md:hidden ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
@@ -271,8 +261,7 @@ export const Header: React.FC = () => {
               key={item.path}
               to={item.path}
               className={({ isActive }) =>
-                `text-3xl font-bold tracking-tight ${isActive ? 'text-smart-accent' : 'text-smart-text'
-                }`
+                `text-3xl font-bold tracking-tight ${isActive ? 'text-smart-accent' : 'text-smart-text'}`
               }
             >
               {item.label}
